@@ -7,8 +7,8 @@ call vundle#begin()
 " the plugin manager Vundle
 Plugin 'gmarik/Vundle.vim'
 
-" nice haskell plugin
-Plugin 'dag/vim2hs'
+" nice haskell plugin - forked from dag/vim2hs
+Plugin 'gnattishness/vim2hs'
 
 Plugin 'godlygeek/tabular'
 
