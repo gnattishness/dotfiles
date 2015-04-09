@@ -15,6 +15,9 @@ Plugin 'godlygeek/tabular'
 " Omni completion for haskell
 Plugin 'eagletmt/neco-ghc'
 
+" Cscope mappings
+Plugin 'cscope_maps', {'pinned' : 1}
+
 call vundle#end()
 
 " Brief help
