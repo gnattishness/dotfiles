@@ -42,7 +42,7 @@ set bs=2
 set ts=8
 set et
 set sw=4
-set sts=-1
+set sts=4
 
 autocmd Filetype haskell setlocal sw=2 omnifunc=necoghc#omnifunc
 
