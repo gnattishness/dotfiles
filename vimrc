@@ -16,7 +16,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'eagletmt/neco-ghc'
 
 " Cscope mappings
-Plugin 'cscope_maps', {'pinned' : 1}
+Plugin 'gnattishness/cscope_maps'
 
 call vundle#end()
 
