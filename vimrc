@@ -63,22 +63,22 @@ set backup
 
 
 if !exists("*mkdir")
-   throw "mkdir isn't supported with this vim, bad vimrc!"
+    throw "mkdir isn't supported with this vim, bad vimrc!"
 endif
 
 if has("unix") || has("win32")
-	if !isdirectory(expand("~/.vim/backups"))
-      exe mkdir($HOME . "/.vim/backups", "p")
-	endif
-	if !isdirectory(expand("~/.vim/swaps"))
-		exe mkdir($HOME . "/.vim/swaps", "p")
-	endif
+    if !isdirectory(expand("~/.vim/backups"))
+        exe mkdir($HOME . "/.vim/backups", "p")
+    endif
+    if !isdirectory(expand("~/.vim/swaps"))
+        exe mkdir($HOME . "/.vim/swaps", "p")
+    endif
 endif
 
 " hide .vim folder
 if has("win32")
-   "let test = system("attrib +h " . expand("~/.vim")) " this also works but seems a hack
-   exe 'silent !start /B attrib +h ' . expand("~/.vim")
+    "let test = system("attrib +h " . expand("~/.vim")) " this also works but seems a hack
+    exe 'silent !start /B attrib +h ' . expand("~/.vim")
 endif
 
 " fine for multiple files with the same name
