@@ -88,6 +88,8 @@ set directory=~/.vim/swaps//
 " the backups wil overwrite eachother
 set backupdir=~/.vim/backups
 
+set tags=./tags;
+
 map <silent> <F2> :Flisttoggle<CR>
 
 " fi(n)         i: 0->n
