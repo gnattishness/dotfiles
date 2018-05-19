@@ -18,6 +18,31 @@ Plugin 'eagletmt/neco-ghc'
 " Cscope mappings
 Plugin 'gnattishness/cscope_maps'
 
+Plugin 'vim-erlang/vim-erlang-runtime'
+
+Plugin 'vim-erlang/vim-erlang-compiler'
+
+Plugin 'vim-erlang/vim-erlang-omnicomplete'
+
+Plugin 'vim-erlang/vim-erlang-tags'
+
+Plugin 'vim-erlang/vim-erlang-skeletons'
+
+Plugin 'vim-erlang/erlang-motions.vim'
+
+Plugin 'scrooloose/nerdtree'
+
+Plugin 'tpope/vim-fugitive'
+
+" Colorschemes
+Plugin 'tpope/vim-vividchalk'
+
+Plugin 'romainl/Apprentice'
+
+Plugin 'chriskempson/base16-vim'
+
+Plugin 'nanotech/jellybeans.vim'
+
 call vundle#end()
 
 " Brief help
@@ -39,7 +64,7 @@ set title
 set number
 set ruler
 set t_Co=256
-colo elflord
+colo vividchalk
 
 set bs=2
 set ts=8
@@ -88,7 +113,7 @@ set directory=~/.vim/swaps//
 " the backups wil overwrite eachother
 set backupdir=~/.vim/backups
 
-set tags=./tags;
+set tags+=./tags;,~/.common_tags
 
 map <silent> <F2> :Flisttoggle<CR>
 
