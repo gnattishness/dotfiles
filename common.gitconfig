@@ -3,3 +3,5 @@
 	hookspath = ~/.git-hooks
 [push]
 	default = upstream
+[color]
+	ui = auto
