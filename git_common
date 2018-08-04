@@ -1,0 +1,5 @@
+[core]
+	editor = vim
+	hookspath = ~/.git-hooks
+[push]
+	default = upstream
