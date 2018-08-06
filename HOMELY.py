@@ -30,6 +30,15 @@ def main():
 
     files.symlink("vimrc", ".vimrc")
     # install vim-plug
+    files.mkdir('.vim')
+    files.mkdir('.vim/autoload')
+    files.mkdir('.vim/swaps')
+    files.mkdir('.vim/backups')
+    files.mkdir('.vim/doc')
+    files.download(
+        "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim",
+        "~/.vim/autoload/plug.vim",
+    )
 
     return 0
 

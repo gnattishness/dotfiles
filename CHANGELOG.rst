@@ -13,6 +13,7 @@ Unreleased_
 Changed
 -------
 
+* vimrc to use vim-plug instead of Vundle
 * Only install .taskrc if taskwarrior is present
 
 0.1.0 - 2018-08-05
