@@ -40,6 +40,11 @@ def main():
         "~/.vim/autoload/plug.vim",
     )
 
+    if system.haveexecutable("pipenv"):
+        # TODO warn that they need to reload for this to take effect
+        # this might break horribly
+        files.lineinfile(".bashrc", 'eval "$(pipenv --completion)"')
+
     return 0
 
 

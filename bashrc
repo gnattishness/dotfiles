@@ -108,4 +108,3 @@ if ! shopt -oq posix; then
 fi
 
 EDITOR=vim
-eval "$(pipenv --completion)"

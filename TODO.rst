@@ -41,3 +41,8 @@ split up into separate sections, functions/directories
 get more up-to-date haskell vim plugins
 
 git config double check that it ignores including ~/.gitconfig
+
+source .vimrc.local at the end if it exists
+
+rst vim plugins
+mediawiki vim plugin

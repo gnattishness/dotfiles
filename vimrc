@@ -41,6 +41,7 @@ set background=dark
 set nowrap
 set title
 set number
+set relativenumber
 set ruler
 set t_Co=256
 colo vividchalk
@@ -75,6 +76,13 @@ set backupdir=~/.vim/backups
 set tags+=./tags;,~/.common_tags
 
 let g:pymode_python = 'python3'
+
+" Mappings
+
+" Allows intuitive moving around wrapped lines, but jumping around via line number
+" from https://blog.petrzemek.net/2016/04/06/things-about-vim-i-wish-i-knew-earlier/
+noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
+noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
 
 " Settings from tutor
