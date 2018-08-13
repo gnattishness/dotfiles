@@ -161,3 +161,7 @@ noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 " todo:
 " .get()  .[cache[v]]
 
+" Source local, device-specific settings.
+if filereadable("~/.vimrc.local")
+    source "~/.vimrc.local"
+endif

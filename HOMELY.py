@@ -42,8 +42,7 @@ def main():
 
     if system.haveexecutable("pipenv"):
         # TODO warn that they need to reload for this to take effect
-        # this might break horribly
-        files.lineinfile(".bashrc", 'eval "$(pipenv --completion)"')
+        files.lineinfile(".bashrc.local", 'eval "$(pipenv --completion)"')
 
     return 0
 
