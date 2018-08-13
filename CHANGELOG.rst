@@ -10,6 +10,9 @@ and this project adheres to `Semantic Versioning <http://semver.org/spec/v2.0.0.
 Unreleased_
 ===========
 
+0.2.0_ - 2018-08-13
+===================
+
 Added
 -----
 
@@ -46,4 +49,5 @@ Changed
   `Homely <https://homely.readthedocs.io/en/latest/index.html>`_.
 
 .. Links
-.. _Unreleased: https://github.com/gnattishness/dotfiles/compare/0.1.0...HEAD
+.. _Unreleased: https://github.com/gnattishness/dotfiles/compare/0.2.0...HEAD
+.. _0.2.0: https://github.com/gnattishness/dotfiles/compare/0.1.0...0.2.0
