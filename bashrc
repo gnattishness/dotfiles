@@ -99,6 +99,11 @@ fi
 
 EDITOR=vim
 
+# TODO possibly put at the very bottom?
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
 # Local, device-specific overrides/settings.
 if [[ -f ~/.bashrc.local ]]; then
     . ~/.bashrc.local

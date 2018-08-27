@@ -1,3 +1,9 @@
 eval $( ssh-agent -t 120m ) > /dev/null
-[[ -r "$HOME/.profile" ]] && . "$HOME/.profile"
-[[ -r "$HOME/.bashrc" ]] && . "$HOME/.bashrc"
+
+if [ -f "$HOME/.profile" ]; then
+    . "$HOME/.profile"
+fi
+
+if [ -f "$HOME/.bashrc" ]; then
+    . "$HOME/.bashrc"
+fi

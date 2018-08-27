@@ -10,6 +10,17 @@ and this project adheres to `Semantic Versioning <http://semver.org/spec/v2.0.0.
 Unreleased_
 ===========
 
+Added
+-----
+
+* pyenv environment variables, auto-completion.
+
+Changed
+-------
+
+* Improved readability of profile, bash_profile.
+
+
 0.2.0_ - 2018-08-13
 ===================
 
@@ -28,6 +39,7 @@ Changed
   
    * Setting is added to ``~/.bashrc.local`` to avoid issues
      modifying a the symlinked ``~/.bashrc``.
+
 
 0.1.0 - 2018-08-05
 ==================
