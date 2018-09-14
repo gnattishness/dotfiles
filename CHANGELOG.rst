@@ -20,6 +20,10 @@ Changed
 
 * Improved readability of profile, bash_profile.
 
+Fixed
+-----
+
+* vimrc failing to source ``~/.vimrc.local``.
 
 0.2.0_ - 2018-08-13
 ===================
@@ -28,13 +32,16 @@ Added
 -----
 
 * vimrc to source a ``~/.vimrc.local`` if it exists.
+
 * bashrc to source ``~/.bashrc.local`` if it exists.
 
 Changed
 -------
 
 * vimrc to use vim-plug instead of Vundle.
+
 * Only install .taskrc if taskwarrior is present.
+
 * Only add bash completion for pipenv if pipenv is present.
   
    * Setting is added to ``~/.bashrc.local`` to avoid issues
@@ -48,10 +55,15 @@ Added
 -----
 
 * This CHANGELOG.rst.
+
 * Initial version.
+
 * Some TODO notes in TODO.rst.
+
 * Simple HOMELY.py that mainly symlinks at this stage.
+
 * A basic README.
+
 * Vimrc using Vundle, configured for Vim 7.x.
 
 Changed

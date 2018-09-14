@@ -2,9 +2,11 @@ TODO
 ====
 
 * leave stub or included vim/bash sourced files,
-  for system unique configurations
+  for system unique configurations?
 
 * ssh, gpg configs as much as is safe
+
+    * example configs
 
 * install common software - taskwarrior, texlive,
   but only if prompted
@@ -18,8 +20,6 @@ TODO
 
 * organize included dotfiles more neatly
 * install pipsi if doesn't already exist
-* install vim-plug
-* install vim plugins
 * install homely.py dependencies in a virtualenv (only later if we want jinja etc)
 
 homely can potentially use virtualenvs in the same way that pipsi get-pipsi.py
@@ -42,7 +42,7 @@ get more up-to-date haskell vim plugins
 
 git config double check that it ignores including ~/.gitconfig
 
-source .vimrc.local at the end if it exists
-
 rst vim plugins
 mediawiki vim plugin
+
+localvimrc

@@ -25,7 +25,7 @@ Plug 'vim-erlang/erlang-motions.vim'
 
 Plug 'python-mode/python-mode', { 'branch': 'develop' }
 
-"Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 "Plug 'tpope/vim-fugitive'
 
 " Colorschemes
@@ -162,6 +162,7 @@ noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 " .get()  .[cache[v]]
 
 " Source local, device-specific settings.
-if filereadable("~/.vimrc.local")
-    source "~/.vimrc.local"
+let s:localvimrc = expand("~/.vimrc.local")
+if filereadable(s:localvimrc)
+    execute "source" s:localvimrc
 endif
