@@ -4,11 +4,17 @@ Changelog
 
 All notable changes to this project will be documented in this file.
 
-The format is based on `Keep a Changelog <http://keepachangelog.com/en/1.0.0/>`_.
-and this project adheres to `Semantic Versioning <http://semver.org/spec/v2.0.0.html>`_.
+The format is based on `Keep a Changelog <https://keepachangelog.com/en/1.0.0/>`_.
+and this project adheres to 
+`Semantic Versioning <https://semver.org/spec/v2.0.0.html>`_.
+
 
 Unreleased_
 ===========
+
+
+0.3.0_ - 2018-09-14
+===================
 
 Added
 -----
@@ -20,10 +26,13 @@ Changed
 
 * Improved readability of profile, bash_profile.
 
+* From __version__.py to VERSION, as not a python package.
+
 Fixed
 -----
 
 * vimrc failing to source ``~/.vimrc.local``.
+
 
 0.2.0_ - 2018-08-13
 ===================
@@ -72,6 +81,8 @@ Changed
 * Previously this used shell script to create symlinks, now using 
   `Homely <https://homely.readthedocs.io/en/latest/index.html>`_.
 
+
 .. Links
-.. _Unreleased: https://github.com/gnattishness/dotfiles/compare/0.2.0...HEAD
+.. _Unreleased: https://github.com/gnattishness/dotfiles/compare/0.3.0...HEAD
+.. _0.3.0: https://github.com/gnattishness/dotfiles/compare/0.2.0...0.3.0
 .. _0.2.0: https://github.com/gnattishness/dotfiles/compare/0.1.0...0.2.0
