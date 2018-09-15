@@ -97,14 +97,15 @@ if ! shopt -oq posix; then
   fi
 fi
 
-EDITOR=vim
-
-# TODO possibly put at the very bottom?
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
+export EDITOR=vim
 
 # Local, device-specific overrides/settings.
 if [[ -f ~/.bashrc.local ]]; then
     . ~/.bashrc.local
 fi
+
+# TODO possibly put at the very bottom?
+#if command -v pyenv 1>/dev/null 2>&1; then
+# TODO troubleshoot why this takes so long?
+#  eval "$(pyenv init -)"
+#fi
