@@ -97,15 +97,30 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# other completion features
+
+# very slow on older versions of WSL
+# to do with https://github.com/Microsoft/WSL/issues/1671
+if command -v stack 1>/dev/null 2>&1; then
+    eval "$(stack --bash-completion-script stack)"
+fi
+
 export EDITOR=vim
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# NOTE - fairly slow to run
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Local, device-specific overrides/settings.
 if [[ -f ~/.bashrc.local ]]; then
     . ~/.bashrc.local
 fi
 
-# TODO possibly put at the very bottom?
-#if command -v pyenv 1>/dev/null 2>&1; then
-# TODO troubleshoot why this takes so long?
-#  eval "$(pyenv init -)"
-#fi
+# at the very bottom because of shims being added
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+

@@ -15,5 +15,6 @@ if [ -d "$HOME/.pyenv" ] ; then
     PATH="$PYENV_ROOT/bin:$PATH"
 fi
 
-#export PIPENV_VENV_IN_PROJECT="True"
-export PIPENV_DEFAULT_PYTHON_VERSION=3.6
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"

@@ -5,17 +5,10 @@ call plug#begin('~/.vim/plugged')
 " To install vim-plug help
 Plug 'junegunn/vim-plug'
 
-" nice haskell plugin - forked from dag/vim2hs
-"Plug 'gnattishness/vim2hs'
-
-"Plug 'godlygeek/tabular'
-
-" Omni completion for haskell
-"Plug 'eagletmt/neco-ghc'
-
 " Cscope mappings
 Plug 'gnattishness/cscope_maps'
 
+" TODO replace with erlang lang server
 Plug 'vim-erlang/vim-erlang-runtime'
 Plug 'vim-erlang/vim-erlang-compiler'
 Plug 'vim-erlang/vim-erlang-omnicomplete'
@@ -23,7 +16,22 @@ Plug 'vim-erlang/vim-erlang-tags'
 Plug 'vim-erlang/vim-erlang-skeletons'
 Plug 'vim-erlang/erlang-motions.vim'
 
-Plug 'python-mode/python-mode', { 'branch': 'develop' }
+" Vim language server client
+Plug 'autozimu/LanguageClient-neovim', {
+            \ 'branch': 'next',
+            \ 'do': 'bash install.sh',
+            \ }
+
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  " Needs to have neovim python module installed
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 
 Plug 'scrooloose/nerdtree'
 "Plug 'tpope/vim-fugitive'
@@ -33,10 +41,12 @@ Plug 'tpope/vim-vividchalk'
 Plug 'romainl/Apprentice'
 Plug 'chriskempson/base16-vim'
 Plug 'nanotech/jellybeans.vim'
+
 call plug#end()
 
 syntax on
 filetype plugin indent on
+set encoding=utf-8
 set background=dark
 set nowrap
 set title
@@ -51,8 +61,6 @@ set ts=8
 set et
 set sw=4
 set sts=4
-
-"autocmd Filetype haskell setlocal sw=2 omnifunc=necoghc#omnifunc
 
 set showmatch
 set hlsearch
@@ -75,15 +83,51 @@ set backupdir=~/.vim/backups
 
 set tags+=./tags;,~/.common_tags
 
-let g:pymode_python = 'python3'
+" Required for operations modifying multiple buffers like lsp rename.
+set hidden
+
+" Always draw sign column. Prevent buffer moving when adding/deleting sign.
+set signcolumn=yes
+
+
+" Plugin settings
+"""""""""""""""""
+
+let g:deoplete#enable_at_startup = 1
+
+let g:LanguageClient_serverCommands = { 
+    \ 'haskell': ['hie-wrapper'],
+    \ 'python': ['pyls'],
+    \ } 
+
+let g:LanguageClient_loggingLevel = 'INFO'
+let g:LanguageClient_loggingFile = $XDG_DATA_HOME . '/lsp/LanguageClient.log'
+let g:LanguageClient_serverStderr = $XDG_DATA_HOME . '/lsp/LanguageServer.log'
+
+" to use if having trouble finding project root
+"let g:LanguageClient_rootMarkers = ['*.cabal', 'stack.yaml']
+
+hi link ALEError Error
+hi Warning term=underline cterm=underline ctermfg=Yellow gui=undercurl guisp=Gold
+hi link ALEWarning Warning
+hi link ALEInfo SpellCap
 
 " Mappings
+""""""""""
 
 " Allows intuitive moving around wrapped lines, but jumping around via line number
 " from https://blog.petrzemek.net/2016/04/06/things-about-vim-i-wish-i-knew-earlier/
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
+map <Leader>lm :call LanguageClient_contextMenu()<CR>
+map <Leader>lk :call LanguageClient#textDocument_hover()<CR>
+map <Leader>ld :call LanguageClient#textDocument_definition()<CR>
+map <Leader>lr :call LanguageClient#textDocument_rename()<CR>
+map <Leader>lf :call LanguageClient#textDocument_formatting()<CR>
+map <Leader>lb :call LanguageClient#textDocument_references()<CR>
+map <Leader>la :call LanguageClient#textDocument_codeAction()<CR>
+map <Leader>ls :call LanguageClient#textDocument_documentSymbol()<CR>
 
 " Settings from tutor
 "map <silent> <F2> :Flisttoggle<CR>

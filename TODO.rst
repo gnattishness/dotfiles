@@ -49,3 +49,13 @@ TODO
 * localvimrc
  
 * troubleshoot why pyenv init takes so long in .bashrc
+
+* move node version manager config to xdg_config_home
+
+* add ./stack/config.yaml base, and ~/.stack/global-project/stack.yaml
+  pycodestyle config in dotfiles
+
+* haskell ide_engine update without having to git pull
+
+* create xdg_data_home/lsp?
+* pip3 install neovim to base package

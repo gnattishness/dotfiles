@@ -4,13 +4,26 @@ Changelog
 
 All notable changes to this project will be documented in this file.
 
-The format is based on `Keep a Changelog <https://keepachangelog.com/en/1.0.0/>`_.
+The format is based on `Keep a Changelog <https://keepachangelog.com/en/1.0.0/>`__.
 and this project adheres to 
-`Semantic Versioning <https://semver.org/spec/v2.0.0.html>`_.
+`Semantic Versioning <https://semver.org/spec/v2.0.0.html>`__.
 
 
 Unreleased_
 ===========
+
+Added
+-----
+
+* Vim language server protocol with 
+  `LanguageClient-neovim <https://github.com/autozimu/LanguageClient-neovim/issues/467>`__.
+  * Initial language servers for haskell, python.
+  * Initial language server mappings.
+
+Removed
+-------
+
+* Vim python-mode plugin (replaced by pyls)
 
 
 0.3.0_ - 2018-09-14
