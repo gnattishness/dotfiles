@@ -16,6 +16,9 @@ Plug 'vim-erlang/vim-erlang-tags'
 Plug 'vim-erlang/vim-erlang-skeletons'
 Plug 'vim-erlang/erlang-motions.vim'
 
+" LaTeX
+Plug 'lervag/vimtex'
+
 " Vim language server client
 Plug 'autozimu/LanguageClient-neovim', {
             \ 'branch': 'next',
@@ -56,6 +59,7 @@ set ruler
 set t_Co=256
 colo vividchalk
 
+set cmdheight=2
 set bs=2
 set ts=8
 set et
@@ -94,6 +98,15 @@ set signcolumn=yes
 """""""""""""""""
 
 let g:deoplete#enable_at_startup = 1
+
+call deoplete#custom#option({
+            \ 'yarp': v:true,
+            \})
+
+if !exists('g:deoplete#omni#input_patterns')
+    let g:deoplete#omni#input_patterns = {}
+endif
+let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete
 
 let g:LanguageClient_serverCommands = { 
     \ 'haskell': ['hie-wrapper'],
