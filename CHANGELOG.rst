@@ -12,6 +12,12 @@ and this project adheres to
 Unreleased_
 ===========
 
+Added
+-----
+
+* Vimtex LaTeX plugin for vim
+* Direnv hook in bashrc (only called if direnv is installed)
+
 0.4.0_ - 2018-10-07
 ===================
 

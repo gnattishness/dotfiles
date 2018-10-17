@@ -105,6 +105,10 @@ if command -v stack 1>/dev/null 2>&1; then
     eval "$(stack --bash-completion-script stack)"
 fi
 
+if command -v direnv 1>/dev/null 2>&1; then
+    eval "$(direnv hook bash)"
+fi
+
 export EDITOR=vim
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
