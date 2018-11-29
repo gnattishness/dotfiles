@@ -25,9 +25,6 @@ def main():
     # TODO revert/cleanup somehow?
     # TODO check that path specification using ~/ works
 
-    files.mkdir(".git-hooks")
-    files.symlink("post-checkout", ".git-hooks/post-checkout")
-
     files.symlink("vimrc", ".vimrc")
     # install vim-plug
     files.mkdir('.vim')

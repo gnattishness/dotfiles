@@ -19,6 +19,15 @@ Added
 * Direnv hook in bashrc (only called if direnv is installed)
 * Poetry installed directly (instead of via Pipsi)
 
+Removed
+-------
+
+* ``.git-hooks`` and nested, per-folder git configuration
+  * All ``.git-config`` files apart from ``~/.gitconfig`` should be replaced with
+    environment variables in direnv's ``.envrc`` 
+  * This is necessary to allow for `pre-commit <https://pre-commit.com/>`__
+
+
 0.4.0_ - 2018-10-07
 ===================
 
