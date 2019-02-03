@@ -15,6 +15,7 @@ Unreleased_
 Added
 -----
 
+* Solidity syntax highlighting plugin.
 * Vimtex LaTeX plugin for vim
 * Direnv hook in bashrc (only called if direnv is installed)
 * Poetry installed directly (instead of via Pipsi)

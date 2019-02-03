@@ -19,6 +19,9 @@ Plug 'vim-erlang/erlang-motions.vim'
 " LaTeX
 Plug 'lervag/vimtex'
 
+" Solidity
+Plug 'tomlion/vim-solidity'
+
 " Vim language server client
 Plug 'autozimu/LanguageClient-neovim', {
             \ 'branch': 'next',
