@@ -15,7 +15,9 @@ Unreleased_
 Added
 -----
 
-* Solidity syntax highlighting plugin.
+* Mediawiki syntax highlighting vim plugin.
+* TOML syntax highlighting vim plugin.
+* Solidity syntax highlighting vim plugin.
 * Vimtex LaTeX plugin for vim
 * Direnv hook in bashrc (only called if direnv is installed)
 * Poetry installed directly (instead of via Pipsi)

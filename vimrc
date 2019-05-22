@@ -19,6 +19,12 @@ Plug 'vim-erlang/erlang-motions.vim'
 " LaTeX
 Plug 'lervag/vimtex'
 
+" TOML
+Plug 'cespare/vim-toml'
+
+" Mediawiki
+Plug 'chikamichi/mediawiki.vim'
+
 " Solidity
 Plug 'tomlion/vim-solidity'
 
