@@ -12,6 +12,14 @@ and this project adheres to
 Unreleased_
 ===========
 
+Added
+-----
+
+* bashrc ``poetry()`` function wrapper that activates the virtual environment
+  instead of calling ``poetry shell``.
+
+  * As in https://github.com/sdispater/poetry/issues/571#issuecomment-496486190
+
 0.5.0_ - 2019-06-06
 ===================
 

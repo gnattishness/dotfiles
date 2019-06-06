@@ -109,6 +109,23 @@ if command -v direnv 1>/dev/null 2>&1; then
     eval "$(direnv hook bash)"
 fi
 
+if command -v poetry 1>/dev/null 2>&1; then
+    # from https://github.com/sdispater/poetry/issues/571
+    # in poetry >1 can use $(poetry env info -p)
+    poetry() {
+        if [[ $@ == "shell" ]]; then
+            local VENVPATH="$(poetry debug:info | grep Path | awk '{print $3}')/bin/activate"
+            if ([[ -f "$VENVPATH" ]] && [[ -z "${VIRTUAL_ENV:-}" ]]); then
+                command source "$VENVPATH"
+            else 
+                command poetry "$@"
+            fi
+        else
+            command poetry "$@"
+        fi
+    }
+fi
+
 export EDITOR=vim
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
