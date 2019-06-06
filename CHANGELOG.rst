@@ -20,6 +20,12 @@ Added
 
   * As in https://github.com/sdispater/poetry/issues/571#issuecomment-496486190
 
+Fixed
+-----
+
+* Fixed typo so ``.poetry`` now properly added to the ``PATH``.
+
+
 0.5.0_ - 2019-06-06
 ===================
 
