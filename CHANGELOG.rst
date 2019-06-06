@@ -12,6 +12,9 @@ and this project adheres to
 Unreleased_
 ===========
 
+0.5.0_ - 2019-06-06
+===================
+
 Added
 -----
 
@@ -26,6 +29,7 @@ Removed
 -------
 
 * ``.git-hooks`` and nested, per-folder git configuration
+
   * All ``.git-config`` files apart from ``~/.gitconfig`` should be replaced with
     environment variables in direnv's ``.envrc`` 
   * This is necessary to allow for `pre-commit <https://pre-commit.com/>`__
@@ -39,8 +43,10 @@ Added
 
 * Vim language server protocol with 
   `LanguageClient-neovim <https://github.com/autozimu/LanguageClient-neovim/issues/467>`__.
+
   * Initial language servers for haskell, python.
   * Initial language server mappings.
+
 * Some nvm (node version manager) initialization.
 
 Removed
@@ -61,7 +67,6 @@ Changed
 -------
 
 * Improved readability of profile, bash_profile.
-
 * From __version__.py to VERSION, as not a python package.
 
 Fixed
@@ -77,20 +82,17 @@ Added
 -----
 
 * vimrc to source a ``~/.vimrc.local`` if it exists.
-
 * bashrc to source ``~/.bashrc.local`` if it exists.
 
 Changed
 -------
 
 * vimrc to use vim-plug instead of Vundle.
-
 * Only install .taskrc if taskwarrior is present.
-
 * Only add bash completion for pipenv if pipenv is present.
   
-   * Setting is added to ``~/.bashrc.local`` to avoid issues
-     modifying a the symlinked ``~/.bashrc``.
+  * Setting is added to ``~/.bashrc.local`` to avoid issues
+    modifying a the symlinked ``~/.bashrc``.
 
 
 0.1.0 - 2018-08-05
@@ -100,15 +102,10 @@ Added
 -----
 
 * This CHANGELOG.rst.
-
 * Initial version.
-
 * Some TODO notes in TODO.rst.
-
 * Simple HOMELY.py that mainly symlinks at this stage.
-
 * A basic README.
-
 * Vimrc using Vundle, configured for Vim 7.x.
 
 Changed
@@ -119,7 +116,8 @@ Changed
 
 
 .. Links
-.. _Unreleased: https://github.com/gnattishness/dotfiles/compare/0.4.0...HEAD
+.. _Unreleased: https://github.com/gnattishness/dotfiles/compare/0.5.0...HEAD
+.. _0.5.0: https://github.com/gnattishness/dotfiles/compare/0.4.0...0.5.0
 .. _0.4.0: https://github.com/gnattishness/dotfiles/compare/0.3.0...0.4.0
 .. _0.3.0: https://github.com/gnattishness/dotfiles/compare/0.2.0...0.3.0
 .. _0.2.0: https://github.com/gnattishness/dotfiles/compare/0.1.0...0.2.0

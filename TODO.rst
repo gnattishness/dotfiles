@@ -41,14 +41,12 @@ TODO
  
 * get more up-to-date haskell vim plugins
  
-* git config double check that it ignores including ~/.gitconfig
- 
 * rst vim plugins
-* mediawiki vim plugin
- 
-* localvimrc
  
 * troubleshoot why pyenv init takes so long in .bashrc
+* if using pyenv installer, can upgrade using ``pyenv update``
+
+* pyenv autocomplete?
 
 * move node version manager config to xdg_config_home
 
