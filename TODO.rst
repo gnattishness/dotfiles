@@ -1,6 +1,7 @@
 TODO
 ====
 
+* update vim plugins?
 * leave stub or included vim/bash sourced files,
   for system unique configurations?
 
