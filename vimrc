@@ -65,8 +65,16 @@ set title
 set number
 set relativenumber
 set ruler
-set t_Co=256
 colo vividchalk
+
+if &term =~ '256color'
+    " Disable Background Color Erase (BCE) so that color schemes
+    " work properly when Vim is used inside tmux and GNU screen.
+    " Thanks:
+    " https://superuser.com/questions/457911/in-vim-background-color-changes-on-scrolling
+    " https://sunaku.github.io/vim-256color-bce.html
+    set t_ut=
+endif
 
 set cmdheight=2
 set bs=2

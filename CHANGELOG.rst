@@ -24,6 +24,9 @@ Fixed
 -----
 
 * Fixed typo so ``.poetry`` now properly added to the ``PATH``.
+* Terminal background color "bleeding" into vim's when using jellybeans colorscheme.
+* Vimrc no longer overriding ``t_Co`` to say 256 colors are supported regardless of
+  actual terminal support
 
 
 0.5.0_ - 2019-06-06
