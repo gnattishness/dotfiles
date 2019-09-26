@@ -27,3 +27,10 @@ if [ -d "$HOME/.pyenv" ] ; then
     export PYENV_ROOT="$HOME/.pyenv"
     export PATH="$PYENV_ROOT/bin:$PATH"
 fi
+
+# at the very bottom because of shims being added
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+eval $( ssh-agent -t 120m ) > /dev/null

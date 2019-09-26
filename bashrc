@@ -132,8 +132,6 @@ export EDITOR=vim
 
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
 # Local, device-specific overrides/settings.
 if [[ -f ~/.bashrc.local ]]; then
     . ~/.bashrc.local
