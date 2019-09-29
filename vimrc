@@ -128,6 +128,7 @@ let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete
 let g:LanguageClient_serverCommands = { 
     \ 'haskell': ['hie-wrapper'],
     \ 'python': ['pyls'],
+    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
     \ } 
 
 let g:LanguageClient_loggingLevel = 'INFO'
@@ -158,6 +159,12 @@ map <Leader>lf :call LanguageClient#textDocument_formatting()<CR>
 map <Leader>lb :call LanguageClient#textDocument_references()<CR>
 map <Leader>la :call LanguageClient#textDocument_codeAction()<CR>
 map <Leader>ls :call LanguageClient#textDocument_documentSymbol()<CR>
+
+" Move around windows more easily
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 " Settings from tutor
 "map <silent> <F2> :Flisttoggle<CR>
