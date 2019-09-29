@@ -12,6 +12,11 @@ and this project adheres to
 Unreleased_
 ===========
 
+Added
+-----
+
+* PATH to include Rust bin directory, if it exists.
+
 
 0.6.0_ - 2019-07-06
 ===================
