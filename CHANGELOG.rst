@@ -16,6 +16,7 @@ Added
 -----
 
 * PATH to include Rust bin directory, if it exists.
+* Git config to GPG sign tags and commits by default.
 
 
 0.6.0_ - 2019-07-06

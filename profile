@@ -38,3 +38,5 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 eval $( ssh-agent -t 120m ) > /dev/null
+
+export GPG_TTY=$(tty)
