@@ -126,7 +126,7 @@ if command -v poetry 1>/dev/null 2>&1; then
     }
 fi
 
-export EDITOR=vim
+export GPG_TTY=$(tty)
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 

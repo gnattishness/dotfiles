@@ -39,4 +39,5 @@ fi
 
 eval $( ssh-agent -t 120m ) > /dev/null
 
-export GPG_TTY=$(tty)
+export EDITOR=vim
+
