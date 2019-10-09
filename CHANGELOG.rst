@@ -17,6 +17,7 @@ Added
 
 * PATH to include Rust bin directory, if it exists.
 * Git config to GPG sign tags and commits by default.
+* i3 configuration files and related scripts that are installed if an i3 executable is present.
 
 
 0.6.0_ - 2019-07-06

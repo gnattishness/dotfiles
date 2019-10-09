@@ -1,6 +1,7 @@
 TODO
 ====
 
+* A bootstrap.sh that installs pipx and Homely
 * update vim plugins?
 * leave stub or included vim/bash sourced files,
   for system unique configurations?
@@ -12,7 +13,7 @@ TODO
 * install common software - taskwarrior, texlive,
   but only if prompted
 
-* pipsi installs: black, mypy, awscli?
+* pipx installs: black, mypy, awscli?
   - probably want to prompt before larger software installs
 
 * does homely create lines in the file if the file doesn't exist

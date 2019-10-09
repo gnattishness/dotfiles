@@ -10,6 +10,7 @@ HERE = os.path.dirname(os.path.realpath(__file__))
 
 
 def main():
+    # TODO to auto rename to an "x.old" and warn?
     files.symlink("bashrc", ".bashrc")
     files.symlink("bash_profile", ".bash_profile")
     files.symlink("profile", ".profile")  # TODO maybe add lines instead?
@@ -24,6 +25,8 @@ def main():
     # NOTE this might overwrite if there's another include.path already present
     # TODO revert/cleanup somehow?
     # TODO check that path specification using ~/ works
+
+    # TODO does pipinstall use system pip or HOMELY's one?
 
     files.symlink("vimrc", ".vimrc")
     # install vim-plug
@@ -40,6 +43,12 @@ def main():
     if system.haveexecutable("pipenv"):
         # TODO warn that they need to reload for this to take effect
         files.lineinfile(".bashrc.local", 'eval "$(pipenv --completion)"')
+
+    if system.haveexecutable("i3"):
+        # ~/.local/bin is towards the front of PATH thanks to .profile
+        files.symlink("i3exit.sh", "~/.local/bin/i3exit")
+        files.symlink("locker.sh", "~/.local/bin/locker")
+        files.symlink("i3.conf", "~/.i3/config")
 
     return 0
 
