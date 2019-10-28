@@ -20,6 +20,14 @@ Added
 * i3 configuration files and related scripts that are installed if an i3 executable is present.
 
 
+Changed
+-------
+
+* Vim solidity plugin to maintained fork: https://github.com/TovarishFin/vim-solidity
+
+  - Need to use ``:PlugClean`` to remove old plugin with clashing name.
+
+
 0.6.0_ - 2019-07-06
 ===================
 

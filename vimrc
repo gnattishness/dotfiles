@@ -26,7 +26,7 @@ Plug 'cespare/vim-toml'
 Plug 'chikamichi/mediawiki.vim'
 
 " Solidity
-Plug 'tomlion/vim-solidity'
+Plug 'TovarishFin/vim-solidity'
 
 " Vim language server client
 Plug 'autozimu/LanguageClient-neovim', {
@@ -160,17 +160,17 @@ map <Leader>lb :call LanguageClient#textDocument_references()<CR>
 map <Leader>la :call LanguageClient#textDocument_codeAction()<CR>
 map <Leader>ls :call LanguageClient#textDocument_documentSymbol()<CR>
 
-" Navigate around windows more easily
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
 " Move windows
 nnoremap <C-H> <C-w>H
 nnoremap <C-J> <C-w>J
 nnoremap <C-K> <C-w>K
 nnoremap <C-L> <C-w>L
+
+" Navigate around windows more easily
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 " Settings from tutor
 "map <silent> <F2> :Flisttoggle<CR>
