@@ -26,7 +26,9 @@ Plug 'cespare/vim-toml'
 Plug 'chikamichi/mediawiki.vim'
 
 " Solidity
-Plug 'TovarishFin/vim-solidity'
+"Plug 'TovarishFin/vim-solidity'
+" Until https://github.com/TovarishFin/vim-solidity/pull/5 is resolved
+Plug 'gnattishness/vim-solidity', { 'branch': 'bytes_fix' }
 
 " Vim language server client
 Plug 'autozimu/LanguageClient-neovim', {
