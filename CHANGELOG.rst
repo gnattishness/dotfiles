@@ -18,6 +18,7 @@ Added
 * PATH to include Rust bin directory, if it exists.
 * Git config to GPG sign tags and commits by default.
 * i3 configuration files and related scripts that are installed if an i3 executable is present.
+* pre-commit auto-install hooks for newly cloned repos.
 
 
 Changed

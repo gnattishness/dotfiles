@@ -50,6 +50,11 @@ def main():
         files.symlink("locker.sh", "~/.local/bin/locker")
         files.symlink("i3.conf", "~/.i3/config")
 
+    if system.haveexecutable("pre-commit"):
+        # Install pre-commit in all new/cloned repos
+        # See also https://pre-commit.com/#pre-commit-init-templatedir
+        system.execute(["pre-commit", "init-templatedir", "~/.git-template"])
+
     return 0
 
 
