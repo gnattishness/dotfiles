@@ -5,6 +5,9 @@ call plug#begin('~/.vim/plugged')
 " To install vim-plug help
 Plug 'junegunn/vim-plug'
 
+" Editor Config settings
+Plug 'editorconfig/editorconfig-vim'
+
 " Cscope mappings
 Plug 'gnattishness/cscope_maps'
 
@@ -131,6 +134,8 @@ let g:LanguageClient_serverCommands = {
     \ 'haskell': ['hie-wrapper'],
     \ 'python': ['pyls'],
     \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ 'cpp': ['clangd'],
+    \ 'c': ['clangd'],
     \ } 
 
 let g:LanguageClient_loggingLevel = 'INFO'

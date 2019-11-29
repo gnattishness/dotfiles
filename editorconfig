@@ -1,0 +1,32 @@
+# Default editor agnostic settings: https://EditorConfig.org
+
+# top-most EditorConfig file
+root = true
+
+# Unix-style newlines with a newline ending every file
+# Default settings
+[*]
+end_of_line = lf
+insert_final_newline = true
+indent_style = space
+indent_size = 4
+trim_trailing_whitespace = true
+
+# Tab indentation (no size specified)
+[Makefile,*.mk]
+indent_style = tab
+
+# Py
+[*.py,*.pyi]
+indent_style = space
+indent_size = 4
+
+# C,C++
+[*.c,*.h,*.cc,*.cpp]
+indent_style = space
+indent_size = 2
+
+# Yaml
+[*.yml,*.yaml]
+indent_size = 2
+indent_style = space

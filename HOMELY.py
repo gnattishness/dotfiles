@@ -14,6 +14,7 @@ def main():
     files.symlink("bashrc", ".bashrc")
     files.symlink("bash_profile", ".bash_profile")
     files.symlink("profile", ".profile")  # TODO maybe add lines instead?
+    files.symlink("editorconfig", ".editorconfig")
     if system.haveexecutable("task"):
         files.symlink("taskrc", ".taskrc")
 

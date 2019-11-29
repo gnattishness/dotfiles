@@ -19,6 +19,8 @@ Added
 * Git config to GPG sign tags and commits by default.
 * i3 configuration files and related scripts that are installed if an i3 executable is present.
 * pre-commit auto-install hooks for newly cloned repos.
+* C langserver support with clangd
+* Vim editorconfig settings and default install with HOMELY
 
 
 Changed
