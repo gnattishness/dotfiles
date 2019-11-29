@@ -54,7 +54,9 @@ def main():
     if system.haveexecutable("pre-commit"):
         # Install pre-commit in all new/cloned repos
         # See also https://pre-commit.com/#pre-commit-init-templatedir
-        system.execute(["pre-commit", "init-templatedir", "~/.git-template"])
+        template_path = "{}/.git-template".format(os.environ["HOME"])
+        system.execute(["git", "config", "--global", "init.templateDir", template_path])
+        system.execute(["pre-commit", "init-templatedir", template_path])
 
     return 0
 
