@@ -29,9 +29,7 @@ Plug 'cespare/vim-toml'
 Plug 'chikamichi/mediawiki.vim'
 
 " Solidity
-"Plug 'TovarishFin/vim-solidity'
-" Until https://github.com/TovarishFin/vim-solidity/pull/5 is resolved
-Plug 'gnattishness/vim-solidity', { 'branch': 'bytes_fix' }
+Plug 'TovarishFin/vim-solidity'
 
 " Vim language server client
 Plug 'autozimu/LanguageClient-neovim', {
@@ -130,13 +128,13 @@ if !exists('g:deoplete#omni#input_patterns')
 endif
 let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete
 
-let g:LanguageClient_serverCommands = { 
+let g:LanguageClient_serverCommands = {
     \ 'haskell': ['hie-wrapper'],
     \ 'python': ['pyls'],
     \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
     \ 'cpp': ['clangd'],
     \ 'c': ['clangd'],
-    \ } 
+    \ }
 
 let g:LanguageClient_loggingLevel = 'INFO'
 let g:LanguageClient_loggingFile = $XDG_DATA_HOME . '/lsp/LanguageClient.log'
@@ -183,7 +181,7 @@ nnoremap <C-l> <C-w>l
 "map <silent> <F2> :Flisttoggle<CR>
 
 " fi(n)         i: 0->n
-" fj(n)         j: 0->n 
+" fj(n)         j: 0->n
 " fk(n)         k: 0->n
 " fd(x, n)      x: n-1->0
 " fo(x, n)      x: 0->n

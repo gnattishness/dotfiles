@@ -5,12 +5,15 @@ Changelog
 All notable changes to this project will be documented in this file.
 
 The format is based on `Keep a Changelog <https://keepachangelog.com/en/1.0.0/>`__.
-and this project adheres to 
+and this project adheres to
 `Semantic Versioning <https://semver.org/spec/v2.0.0.html>`__.
 
 
 Unreleased_
 ===========
+
+0.7.0_ - 2019-12-02
+===================
 
 Added
 -----
@@ -70,7 +73,7 @@ Removed
 * ``.git-hooks`` and nested, per-folder git configuration
 
   * All ``.git-config`` files apart from ``~/.gitconfig`` should be replaced with
-    environment variables in direnv's ``.envrc`` 
+    environment variables in direnv's ``.envrc``
   * This is necessary to allow for `pre-commit <https://pre-commit.com/>`__
 
 
@@ -80,7 +83,7 @@ Removed
 Added
 -----
 
-* Vim language server protocol with 
+* Vim language server protocol with
   `LanguageClient-neovim <https://github.com/autozimu/LanguageClient-neovim/issues/467>`__.
 
   * Initial language servers for haskell, python.
@@ -129,7 +132,7 @@ Changed
 * vimrc to use vim-plug instead of Vundle.
 * Only install .taskrc if taskwarrior is present.
 * Only add bash completion for pipenv if pipenv is present.
-  
+
   * Setting is added to ``~/.bashrc.local`` to avoid issues
     modifying a the symlinked ``~/.bashrc``.
 
@@ -150,7 +153,7 @@ Added
 Changed
 -------
 
-* Previously this used shell script to create symlinks, now using 
+* Previously this used shell script to create symlinks, now using
   `Homely <https://homely.readthedocs.io/en/latest/index.html>`_.
 
 
