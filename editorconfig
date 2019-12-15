@@ -27,7 +27,12 @@ indent_size = 4
 indent_style = space
 indent_size = 2
 
-# Yaml
-[*.{yml,yaml}]
+# Yaml, JS
+[*.{yml,yaml,js}]
+indent_size = 2
+indent_style = space
+
+# teX, LaTeX
+[*.{tex,latex}]
 indent_size = 2
 indent_style = space
