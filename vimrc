@@ -1,5 +1,7 @@
 set nocompatible
 
+set pyxversion=3
+
 call plug#begin('~/.vim/plugged')
 
 " To install vim-plug help
@@ -16,18 +18,22 @@ Plug 'vim-erlang/vim-erlang-runtime'
 Plug 'vim-erlang/vim-erlang-compiler'
 Plug 'vim-erlang/vim-erlang-omnicomplete'
 Plug 'vim-erlang/vim-erlang-tags'
-Plug 'vim-erlang/vim-erlang-skeletons'
+" To uncomment when vim-erlang/vim-erlang-skeletons#19 is accepted
+"Plug 'vim-erlang/vim-erlang-skeletons'
 Plug 'vim-erlang/erlang-motions.vim'
 
 " LaTeX
 Plug 'lervag/vimtex'
+
+" Nim
+Plug 'zah/nim.vim'
 
 " TOML
 Plug 'cespare/vim-toml'
 
 " Mediawiki
 Plug 'chikamichi/mediawiki.vim'
-
+"
 " Solidity
 Plug 'TovarishFin/vim-solidity'
 
@@ -58,6 +64,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'nanotech/jellybeans.vim'
 
 call plug#end()
+
 
 syntax on
 filetype plugin indent on
@@ -258,3 +265,4 @@ let s:localvimrc = expand("~/.vimrc.local")
 if filereadable(s:localvimrc)
     execute "source" s:localvimrc
 endif
+
