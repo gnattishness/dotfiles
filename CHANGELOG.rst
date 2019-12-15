@@ -13,10 +13,17 @@ Unreleased_
 ===========
 
 Removed
-=======
+-------
 
 * Temporarily disabled ``vim-erlang-skeletons`` plugin until PR19 is accepted,
   to stop it loading python2 when both 2 and 3 are supported.
+
+Fixed
+-----
+
+* Vim LanguageClient not starting if log directory doesn't already exist.
+* Rust LangServer having hard-coded executable path and failing in some installations,
+  rather than running from $PATH.
 
 
 0.7.0_ - 2019-12-02

@@ -138,14 +138,16 @@ let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete
 let g:LanguageClient_serverCommands = {
     \ 'haskell': ['hie-wrapper'],
     \ 'python': ['pyls'],
-    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ 'rust': ['rustup', 'run', 'stable', 'rls'],
     \ 'cpp': ['clangd'],
     \ 'c': ['clangd'],
     \ }
 
 let g:LanguageClient_loggingLevel = 'INFO'
-let g:LanguageClient_loggingFile = $XDG_DATA_HOME . '/lsp/LanguageClient.log'
-let g:LanguageClient_serverStderr = $XDG_DATA_HOME . '/lsp/LanguageServer.log'
+" LangClient won't run if log directory doesn't exist
+call mkdir($XDG_DATA_HOME . "/lsp", "p", 0700)
+let g:LanguageClient_loggingFile = expand($XDG_DATA_HOME . '/lsp/LanguageClient.log')
+let g:LanguageClient_serverStderr = expand($XDG_DATA_HOME . '/lsp/LanguageServer.log')
 
 " to use if having trouble finding project root
 "let g:LanguageClient_rootMarkers = ['*.cabal', 'stack.yaml']
