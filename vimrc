@@ -18,8 +18,7 @@ Plug 'vim-erlang/vim-erlang-runtime'
 Plug 'vim-erlang/vim-erlang-compiler'
 Plug 'vim-erlang/vim-erlang-omnicomplete'
 Plug 'vim-erlang/vim-erlang-tags'
-" To uncomment when vim-erlang/vim-erlang-skeletons#19 is accepted
-"Plug 'vim-erlang/vim-erlang-skeletons'
+Plug 'vim-erlang/vim-erlang-skeletons'
 Plug 'vim-erlang/erlang-motions.vim'
 
 " LaTeX
@@ -56,6 +55,7 @@ endif
 
 Plug 'scrooloose/nerdtree'
 "Plug 'tpope/vim-fugitive'
+Plug 'vim-airline/vim-airline'
 
 " Colorschemes
 Plug 'tpope/vim-vividchalk'
@@ -123,6 +123,8 @@ set signcolumn=yes
 
 " Plugin settings
 """""""""""""""""
+
+let g:airline#extensions#tabline#enabled = 1
 
 let g:deoplete#enable_at_startup = 1
 

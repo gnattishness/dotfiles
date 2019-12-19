@@ -12,11 +12,10 @@ and this project adheres to
 Unreleased_
 ===========
 
-Removed
--------
+Added
+-----
 
-* Temporarily disabled ``vim-erlang-skeletons`` plugin until PR19 is accepted,
-  to stop it loading python2 when both 2 and 3 are supported.
+* Vim-airline plugin
 
 Fixed
 -----
