@@ -36,3 +36,8 @@ indent_style = space
 [*.{tex,latex}]
 indent_size = 2
 indent_style = space
+
+# nim
+[*.nim]
+indent_size = 2
+indent_style = space
