@@ -55,7 +55,9 @@ endif
 
 Plug 'scrooloose/nerdtree'
 "Plug 'tpope/vim-fugitive'
+
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Colorschemes
 Plug 'tpope/vim-vividchalk'
