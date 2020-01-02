@@ -16,6 +16,10 @@ Added
 -----
 
 * Vim-airline plugin
+* Config ``kitty.conf`` for the kitty terminal.
+
+  - Uses PragmataPro font.
+  - Also loads from an ``$XDG_CONFIG_HOME/kitty/local.conf`` to allow local overrides.
 
 Fixed
 -----

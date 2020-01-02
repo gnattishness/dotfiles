@@ -51,6 +51,10 @@ def main():
         files.symlink("locker.sh", "~/.local/bin/locker")
         files.symlink("i3.conf", "~/.i3/config")
 
+    if system.haveexecutable("kitty"):
+        files.mkdir("$XDG_CONFIG_HOME/kitty")
+        files.symlink("kitty.conf", "$XDG_CONFIG_HOME/kitty/kitty.conf")
+
     if system.haveexecutable("pre-commit"):
         # Install pre-commit in all new/cloned repos
         # See also https://pre-commit.com/#pre-commit-init-templatedir
