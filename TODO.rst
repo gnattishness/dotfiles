@@ -1,6 +1,12 @@
 TODO
 ====
 
+* Change to `gopls` langserver when v1.0 is released
+* dunstrc
+* Set Xresources font to pragmata if present - include a dotfiles xresources?
+* i3 font via xresources
+  https://i3wm.org/docs/userguide.html#xresources
+* Try alacritty terminal once https://github.com/jwilm/alacritty/pull/2677 ligatures are supported
 * A bootstrap.sh that installs pipx and Homely
 * update vim plugins?
 * leave stub or included vim/bash sourced files,
@@ -21,30 +27,26 @@ TODO
 * modify homely to allow custom revert for system calling
 
 * organize included dotfiles more neatly
-* install pipsi if doesn't already exist
+* install pipx if doesn't already exist
 * install homely.py dependencies in a virtualenv (only later if we want jinja etc)
 
 * homely can potentially use virtualenvs in the same way that pipsi get-pipsi.py
   does (to get the system python)
   sys.real_prefix
- 
-* how does pipsi handle being called, if already in a venv?
- 
+
 * au apt location if not already configured
 
 * do i want homely be run as sudo or not?
 * poetry via pipsi?
- 
+
 * pipsi updating pip, setuptools inside the venv
- 
+
 * build latest vim from source or add jonathonf apt repo
- 
+
 * split up into separate sections, functions/directories
- 
-* get more up-to-date haskell vim plugins
- 
+
 * rst vim plugins
- 
+
 * troubleshoot why pyenv init takes so long in .bashrc
 * if using pyenv installer, can upgrade using ``pyenv update``
 
@@ -57,5 +59,12 @@ TODO
 
 * haskell ide_engine update without having to git pull
 
-* create xdg_data_home/lsp?
 * pip3 install neovim to base package
+
+* Documentation about what should be installed with pipx and how (e.g. pyls with relevant plugins injected)
+
+PR Ideas
+========
+
+- vim-plug to prefer pythonx over python or python3
+  (only occurs on vim < 8 without jobs, and not on autoload - on update etc, so not important)

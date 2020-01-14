@@ -35,6 +35,15 @@ if [ -d "$HOME/.pyenv" ] ; then
     export PATH="$PYENV_ROOT/bin:$PATH"
 fi
 
+# TODO have a trusted "go tools" path that is added to PATH
+# and in GOPATH, but by default `go get` doesn't install there
+if [ -d "$HOME/go" ] ; then
+    export PATH="$HOME/go/bin:$PATH"
+fi
+
+
+# TODO check is this ok to have here, cuz depends on the shell
+# uses bashisms?
 # at the very bottom because of shims being added
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"

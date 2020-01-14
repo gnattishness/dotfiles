@@ -43,6 +43,7 @@ Plug 'autozimu/LanguageClient-neovim', {
             \ }
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -52,6 +53,8 @@ else
   " Needs to have neovim python module installed
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
+
+Plug 'Shougo/echodoc.vim'
 
 Plug 'scrooloose/nerdtree'
 "Plug 'tpope/vim-fugitive'
@@ -145,6 +148,7 @@ let g:LanguageClient_serverCommands = {
     \ 'rust': ['rustup', 'run', 'stable', 'rls'],
     \ 'cpp': ['clangd'],
     \ 'c': ['clangd'],
+    \ 'go': ['go-langserver'],
     \ }
 
 let g:LanguageClient_loggingLevel = 'INFO'
@@ -152,6 +156,9 @@ let g:LanguageClient_loggingLevel = 'INFO'
 call mkdir($XDG_DATA_HOME . "/lsp", "p", 0700)
 let g:LanguageClient_loggingFile = expand($XDG_DATA_HOME . '/lsp/LanguageClient.log')
 let g:LanguageClient_serverStderr = expand($XDG_DATA_HOME . '/lsp/LanguageServer.log')
+" Gofmt on save
+" TOOD autofmt for other file types too
+autocmd BufWritePre *.go :call LanguageClient#textDocument_formatting_sync()
 
 " to use if having trouble finding project root
 "let g:LanguageClient_rootMarkers = ['*.cabal', 'stack.yaml']
@@ -160,6 +167,10 @@ hi link ALEError Error
 hi Warning term=underline cterm=underline ctermfg=Yellow gui=undercurl guisp=Gold
 hi link ALEWarning Warning
 hi link ALEInfo SpellCap
+
+" Echodoc settings
+let g:echodoc#enable_at_startup = 1
+let g:echodoc#type = 'signature'
 
 " Mappings
 """"""""""
