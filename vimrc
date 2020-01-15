@@ -151,6 +151,9 @@ let g:LanguageClient_serverCommands = {
     \ 'go': ['go-langserver'],
     \ }
 
+" Automatically start LangServers
+let g:LanguageClient_autoStart = 1
+
 let g:LanguageClient_loggingLevel = 'INFO'
 " LangClient won't run if log directory doesn't exist
 call mkdir($XDG_DATA_HOME . "/lsp", "p", 0700)
