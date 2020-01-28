@@ -14,13 +14,11 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 
-if [ -d "$HOME/.nvm" ] ; then
-    export NVM_DIR="$HOME/.nvm"
-elif [ -d "$XDG_CONFIG_HOME/nvm" ] ; then
+if [ -d "$XDG_CONFIG_HOME/nvm" ] ; then
     export NVM_DIR="$XDG_CONFIG_HOME/nvm"
+elif [ -d "$HOME/.nvm" ] ; then
+    export NVM_DIR="$HOME/.nvm"
 fi
-
-[ -n "$NVM_DIR" -a -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 if [ -d "$HOME/.cargo" ] ; then
     export PATH="$HOME/.cargo/bin:$PATH"

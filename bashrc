@@ -117,7 +117,7 @@ if command -v poetry 1>/dev/null 2>&1; then
             local VENVPATH="$(poetry debug:info | grep Path | awk '{print $3}')/bin/activate"
             if ([[ -f "$VENVPATH" ]] && [[ -z "${VIRTUAL_ENV:-}" ]]); then
                 command source "$VENVPATH"
-            else 
+            else
                 command poetry "$@"
             fi
         else
@@ -130,6 +130,8 @@ export GPG_TTY=$(tty)
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+# This loads nvm - as .profile only runs for login shells
+[ -n "$NVM_DIR" -a -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Local, device-specific overrides/settings.
