@@ -13,7 +13,7 @@ indent_size = 4
 trim_trailing_whitespace = true
 
 # Tab indentation (no size specified)
-[{Makefile,*.mk}]
+[{Makefile,*.mk,GNUmakefile,makefile}]
 indent_style = tab
 
 # Py
