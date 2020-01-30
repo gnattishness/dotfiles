@@ -20,6 +20,8 @@ Added
 
   - Uses PragmataPro font.
   - Also loads from an ``$XDG_CONFIG_HOME/kitty/local.conf`` to allow local overrides.
+* I3 bindings:
+  - to move workspace between screens
 
 Fixed
 -----
