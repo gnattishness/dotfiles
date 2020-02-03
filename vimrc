@@ -192,7 +192,15 @@ map <Leader>lb :call LanguageClient#textDocument_references()<CR>
 map <Leader>la :call LanguageClient#textDocument_codeAction()<CR>
 map <Leader>ls :call LanguageClient#textDocument_documentSymbol()<CR>
 
+" LanguageClient commands in a new tab
+map <Leader>ltm :call LanguageClient_contextMenu()<CR>
+map <Leader>ltd :call LanguageClient#textDocument_definition()<CR>
+map <Leader>ltb :call LanguageClient#textDocument_references()<CR>
+map <Leader>lts :call LanguageClient#textDocument_documentSymbol()<CR>
+
 " Move windows
+" TODO fix - this doesn't work - (most?) terminals don't distinguish between capital
+" and not
 nnoremap <C-H> <C-w>H
 nnoremap <C-J> <C-w>J
 nnoremap <C-K> <C-w>K

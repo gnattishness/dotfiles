@@ -15,12 +15,18 @@ Unreleased_
 Added
 -----
 
+* Vim:
+
+  - LSP keybinds to open in a new tab.
+
 * Vim-airline plugin
 * Config ``kitty.conf`` for the kitty terminal.
 
   - Uses PragmataPro font.
   - Also loads from an ``$XDG_CONFIG_HOME/kitty/local.conf`` to allow local overrides.
+
 * I3 bindings:
+
   - to move workspace between screens
 
 Fixed
