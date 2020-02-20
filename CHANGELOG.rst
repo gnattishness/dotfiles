@@ -18,6 +18,7 @@ Added
 * Vim:
 
   - LSP keybinds to open in a new tab.
+  - filetype settings for LaTeX, markdown, rst
 
 * Vim-airline plugin
 * Config ``kitty.conf`` for the kitty terminal.

@@ -40,6 +40,8 @@ def main():
         "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim",
         "~/.vim/autoload/plug.vim",
     )
+    # link custom ftplugin files
+    files.symlink("vim-ftplugin", ".vim/ftplugin")
 
     if system.haveexecutable("pipenv"):
         # TODO warn that they need to reload for this to take effect

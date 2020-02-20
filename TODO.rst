@@ -1,6 +1,11 @@
 TODO
 ====
 
+* Check out https://github.com/reedes/vim-lexical, vim-pencil, supertab plugins?
+* specific dictionary for technical things? - only bother if it starts getting annoying
+  - add to dotfiles?
+
+* easier movement between vim tabs? or easier movement between buffers?
 * Change to `gopls` langserver when v1.0 is released
 * dunstrc
 * Set Xresources font to pragmata if present - include a dotfiles xresources?

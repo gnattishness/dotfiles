@@ -32,7 +32,10 @@ Plug 'cespare/vim-toml'
 
 " Mediawiki
 Plug 'chikamichi/mediawiki.vim'
-"
+
+" Markdown
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+
 " Solidity
 Plug 'TovarishFin/vim-solidity'
 
@@ -102,6 +105,7 @@ set showmatch
 set hlsearch
 set incsearch
 
+" TODO better keystroke
 set pastetoggle=<F2>
 
 set mouse=a
@@ -124,6 +128,11 @@ set hidden
 
 " Always draw sign column. Prevent buffer moving when adding/deleting sign.
 set signcolumn=yes
+
+" Default spelling
+set spelllang=en_au
+
+let g:tex_flavor = "latex"
 
 
 " Plugin settings
@@ -175,6 +184,8 @@ hi link ALEInfo SpellCap
 let g:echodoc#enable_at_startup = 1
 let g:echodoc#type = 'signature'
 
+" Markdown preview
+
 " Mappings
 """"""""""
 
@@ -193,10 +204,10 @@ map <Leader>la :call LanguageClient#textDocument_codeAction()<CR>
 map <Leader>ls :call LanguageClient#textDocument_documentSymbol()<CR>
 
 " LanguageClient commands in a new tab
-map <Leader>ltm :call LanguageClient_contextMenu()<CR>
-map <Leader>ltd :call LanguageClient#textDocument_definition()<CR>
-map <Leader>ltb :call LanguageClient#textDocument_references()<CR>
-map <Leader>lts :call LanguageClient#textDocument_documentSymbol()<CR>
+map <Leader>ltm :tab call LanguageClient_contextMenu()<CR>
+map <Leader>ltd :tab call LanguageClient#textDocument_definition()<CR>
+map <Leader>ltb :tab call LanguageClient#textDocument_references()<CR>
+map <Leader>lts :tab call LanguageClient#textDocument_documentSymbol()<CR>
 
 " Move windows
 " TODO fix - this doesn't work - (most?) terminals don't distinguish between capital
