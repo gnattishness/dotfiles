@@ -12,6 +12,9 @@ and this project adheres to
 Unreleased_
 ===========
 
+0.8.0_ - 2020-06-31
+===================
+
 Added
 -----
 
@@ -186,11 +189,13 @@ Changed
 -------
 
 * Previously this used shell script to create symlinks, now using
-  `Homely <https://homely.readthedocs.io/en/latest/index.html>`_.
+  `Homely <https://homely.readthedocs.io/en/latest/index.html>`__.
 
 
 .. Links
-.. _Unreleased: https://github.com/gnattishness/dotfiles/compare/0.6.0...HEAD
+.. _Unreleased: https://github.com/gnattishness/dotfiles/compare/0.8.0...HEAD
+.. _0.8.0: https://github.com/gnattishness/dotfiles/compare/0.7.0...0.8.0
+.. _0.7.0: https://github.com/gnattishness/dotfiles/compare/0.6.0...0.7.0
 .. _0.6.0: https://github.com/gnattishness/dotfiles/compare/0.5.0...0.6.0
 .. _0.5.0: https://github.com/gnattishness/dotfiles/compare/0.4.0...0.5.0
 .. _0.4.0: https://github.com/gnattishness/dotfiles/compare/0.3.0...0.4.0
