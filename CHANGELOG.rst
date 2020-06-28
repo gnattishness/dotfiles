@@ -18,9 +18,9 @@ Added
 * Vim:
 
   - LSP keybinds to open in a new tab.
-  - filetype settings for LaTeX, markdown, rst
-
-* Vim-airline plugin
+  - filetype settings for LaTeX, markdown, rst.
+  - AnsiEsc plugin for ANSI color highlighting.
+  - Vim-airline plugin.
 * Config ``kitty.conf`` for the kitty terminal.
 
   - Uses PragmataPro font.
@@ -28,7 +28,13 @@ Added
 
 * I3 bindings:
 
-  - to move workspace between screens
+  - to move workspace between screens.
+
+Changed
+-------
+
+* Git to only fast-forward by default on merges.
+* Specific EditorConfig customizations for Java, markdown, Golang files.
 
 Fixed
 -----

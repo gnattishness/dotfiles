@@ -16,6 +16,10 @@ trim_trailing_whitespace = true
 [{Makefile,*.mk,GNUmakefile,makefile}]
 indent_style = tab
 
+# md
+[*.md]
+indent_size = 2
+
 # Py
 [*.{py,pyi}]
 indent_style = space
@@ -41,3 +45,12 @@ indent_style = space
 [*.nim]
 indent_size = 2
 indent_style = space
+
+# Java
+[*.java]
+indent_size = 2
+indent_style = space
+
+# Golang
+[*.go]
+indent_style = tab

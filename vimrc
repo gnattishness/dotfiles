@@ -39,6 +39,9 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 " Solidity
 Plug 'TovarishFin/vim-solidity'
 
+" Ansi colored escape characters
+Plug 'powerman/vim-plugin-AnsiEsc'
+
 " Vim language server client
 Plug 'autozimu/LanguageClient-neovim', {
             \ 'branch': 'next',

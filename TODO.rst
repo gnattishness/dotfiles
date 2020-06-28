@@ -1,6 +1,26 @@
 TODO
 ====
 
+* Add config and notes for time tracker
+  - Hamster https://github.com/projecthamster/ (not very regularly maintained?)
+    - reasonable, crashes kinda often but no problem, gtk in alpha
+  - Other options might be:
+    - https://www.kimai.org/ (more involved server setup, maybe better in the longer run)
+    - Ktimetracker - KDE-based
+* Add latexmkrc
+* Document python-language-server install::
+  $ pipx install python-language-server[rope,pyflakes,pydocstyle,pylint]
+  $ pipx inject python-language-server pyls-black pyls-isort pyls-mypy
+
+* File markdown highlighting bug::
+
+      `rounds[_id].details.minAnswers - rounds[_id].details.answers.length`
+  The underscore in ``_id`` starts an italics section, even though it is in an inline "code section"
+
+* https://github.com/tomv564/pyls-mypy disable live mode
+* use solc-select - https://github.com/crytic/solc-select
+* extra brightness i3 keystroke
+  xrandr --output eDP1 --brightness 2
 * Check out https://github.com/reedes/vim-lexical, vim-pencil, supertab plugins?
 * specific dictionary for technical things? - only bother if it starts getting annoying
   - add to dotfiles?
