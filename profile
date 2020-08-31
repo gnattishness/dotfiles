@@ -13,6 +13,8 @@ fi
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
+export JAVA_HOME="/usr/lib/jvm/default/"
+export GO111MODULE=on #default to go modules
 
 if [ -d "$XDG_CONFIG_HOME/nvm" ] ; then
     export NVM_DIR="$XDG_CONFIG_HOME/nvm"
