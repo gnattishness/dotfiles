@@ -160,7 +160,7 @@ let g:LanguageClient_serverCommands = {
     \ 'rust': ['rustup', 'run', 'stable', 'rls'],
     \ 'cpp': ['clangd'],
     \ 'c': ['clangd'],
-    \ 'go': ['go-langserver'],
+    \ 'go': ['gopls'],
     \ }
 
 " Automatically start LangServers
