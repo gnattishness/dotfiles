@@ -1,0 +1,14 @@
+[Unit]
+Description=User suspend actions
+Before=sleep.target
+
+[Service]
+User=%I
+Type=forking
+Environment=DISPLAY=:0
+ExecStart=/usr/local/bin/xflock4
+# Don't need this because xflock4 sleeps
+# ExecStartPost=/usr/bin/sleep 1
+
+[Install]
+WantedBy=sleep.target
