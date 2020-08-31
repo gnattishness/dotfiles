@@ -10,3 +10,9 @@
 	gpgsign = true
 [pull]
 	ff = only
+# Would be nice to have the --rebase-merges option enabled by default whenever rebase is used
+# But still have `pull` default to --no-ff
+# TODO setup an alias instead?
+#	rebase = merges
+[rerere]
+	enabled = true
