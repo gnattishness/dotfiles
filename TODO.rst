@@ -1,6 +1,8 @@
 TODO
 ====
 
+* Document manjaro i3 workaround - to modify xflock4 to not use blurlock
+  - might need to replace it after manjaro updates
 * Add config and notes for time tracker
   - Hamster https://github.com/projecthamster/ (not very regularly maintained?)
     - reasonable, crashes kinda often but no problem, gtk in alpha
