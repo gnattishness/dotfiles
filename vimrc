@@ -168,7 +168,9 @@ let g:LanguageClient_autoStart = 1
 
 let g:LanguageClient_loggingLevel = 'INFO'
 " LangClient won't run if log directory doesn't exist
-call mkdir($XDG_DATA_HOME . "/lsp", "p", 0700)
+if ! isdirectory($XDG_DATA_HOME . "/lsp")
+    call mkdir($XDG_DATA_HOME . "/lsp", "p", 0700)
+endif
 let g:LanguageClient_loggingFile = expand($XDG_DATA_HOME . '/lsp/LanguageClient.log')
 let g:LanguageClient_serverStderr = expand($XDG_DATA_HOME . '/lsp/LanguageServer.log')
 " Gofmt on save
