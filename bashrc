@@ -21,13 +21,13 @@ shopt -s checkwinsize
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
-#shopt -s globstar
+shopt -s globstar
 
 # make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+[[ -x /usr/bin/lesspipe ]] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+if [[ -z "${debian_chroot:-}" ]] && [[ -r /etc/debian_chroot ]]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
@@ -69,7 +69,7 @@ xterm*|rxvt*)
 esac
 
 # enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
+if [[ -x /usr/bin/dircolors ]]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
 
@@ -90,9 +90,9 @@ fi
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
 if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
+  if [[ -f /usr/share/bash-completion/bash_completion ]]; then
     . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
+  elif [[ -f /etc/bash_completion ]]; then
     . /etc/bash_completion
   fi
 fi
@@ -128,11 +128,31 @@ fi
 
 export GPG_TTY=$(tty)
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[[ -f ~/.fzf.bash ]] && source ~/.fzf.bash
+
+# ASDF version manager
+# TODO maybe don't want to have this running on every new terminal window
+[[ -n "$ASDF_DIR" && -s "$ASDF_DIR/asdf.sh" ]] && source "$ASDF_DIR/asdf.sh"
+
+## Alternative version managers
+## NOTE: thanks to .profile these will only be initialized if asdf-vm isn't present
 
 # This loads nvm - as .profile only runs for login shells
-[ -n "$NVM_DIR" -a -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+if [[ -n "$NVM_DIR" ]]; then
+    if [[ ! ( -s "$NVM_DIR/nvm.sh" && -s "$NVM_DIR/bash_completion" ) ]]; then
+        echo "Problem with NVM_DIR! Expected files not present." 1>&2
+    fi
+    source "$NVM_DIR/nvm.sh"
+    source "$NVM_DIR/bash_completion"
+fi
+
+# Initialize pyenv if present
+# Optimally would avoid having to call it in every new shell
+if command -v pyenv 1>/dev/null 2>&1; then
+    # NOTE: pyenv shouldn't be accessible if asdf-vm is installed
+    eval "$(pyenv init -)"
+fi
+
 
 # Local, device-specific overrides/settings.
 if [[ -f ~/.bashrc.local ]]; then
