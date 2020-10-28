@@ -19,6 +19,7 @@ def main():
         files.symlink("taskrc", ".taskrc")
     if system.haveexecutable("asdf"):
         files.symlink("tool-versions", ".tool-versions")
+        files.symlink("asdfrc", ".asdfrc")
 
     # git common config:
     # TODO error if git not present
