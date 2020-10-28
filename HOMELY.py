@@ -17,6 +17,8 @@ def main():
     files.symlink("editorconfig", ".editorconfig")
     if system.haveexecutable("task"):
         files.symlink("taskrc", ".taskrc")
+    if system.haveexecutable("asdf"):
+        files.symlink("tool-versions", ".tool-versions")
 
     # git common config:
     # TODO error if git not present
