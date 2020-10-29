@@ -51,8 +51,6 @@ if [ -d "$HOME/go" ]; then
     export PATH="$HOME/go/bin:$PATH"
 fi
 
-
-eval $( ssh-agent -t 120m ) > /dev/null
+eval $(ssh-agent -t 120m) >/dev/null
 
 export EDITOR=vim
-
