@@ -7,6 +7,15 @@ call plug#begin('~/.vim/plugged')
 " To install vim-plug help
 Plug 'junegunn/vim-plug'
 
+" General editor plugins
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'justinmk/vim-sneak'
+
 " Editor Config settings
 Plug 'editorconfig/editorconfig-vim'
 
@@ -48,9 +57,6 @@ Plug 'autozimu/LanguageClient-neovim', {
             \ 'do': 'bash install.sh',
             \ }
 
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -62,8 +68,6 @@ endif
 
 Plug 'Shougo/echodoc.vim'
 
-Plug 'scrooloose/nerdtree'
-"Plug 'tpope/vim-fugitive'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
