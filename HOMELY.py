@@ -20,6 +20,7 @@ def main():
     if system.haveexecutable("asdf"):
         files.symlink("tool-versions", ".tool-versions")
         files.symlink("asdfrc", ".asdfrc")
+        files.symlink("default-golang-pkgs", ".default-golang-pkgs")
 
     # git common config:
     # TODO error if git not present
