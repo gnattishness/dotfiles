@@ -131,7 +131,7 @@ export GPG_TTY=$(tty)
 [[ -f ~/.fzf.bash ]] && source ~/.fzf.bash
 if command -v fzf 1>/dev/null 2>&1; then
     export FZF_DEFAULT_OPTS='-m --height 50% --border'
-    if command -v rg 1>/dev/null 2>&1 && ; then
+    if command -v rg 1>/dev/null 2>&1; then
         # quicker search
         export FZF_DEFAULT_COOMMAND='rg --files'
     fi
