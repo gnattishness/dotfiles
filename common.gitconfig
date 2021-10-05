@@ -1,22 +1,26 @@
+[alias]
+	lg = log --graph
 [core]
 	editor = vim
-[push]
-	default = upstream
 [color]
 	ui = auto
 [commit]
 	gpgsign = true
-[tag]
-	gpgsign = true
-[pull]
-	ff = only
+[fetch]
+    recurseSubmodules = on-demand
 # Would be nice to have the --rebase-merges option enabled by default whenever rebase is used
 # But still have `pull` default to --no-ff
 # TODO setup an alias instead?
 #	rebase = merges
+[pull]
+	ff = only
+[push]
+	default = upstream
+    recurseSubmodules = check
+[rebase]
+    missingCommitsCheck = warn
 [rerere]
 	enabled = true
-#[url "git@github.com:"]
-#	insteadOf = https://github.com/
-[alias]
-	lg = log --graph
+[tag]
+	gpgsign = true
+# diff.algorithm?
