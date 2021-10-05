@@ -52,7 +52,7 @@ def main():
     files.symlink("vim-ftplugin", ".vim/ftplugin")
 
     # Font config
-    files.mkdir(os.path.join(config_home, "fontconfig"))
+    files.mkdir(f"{config_home}/fontconfig")
     files.symlink("fonts.conf", f"{config_home}/fontconfig/fonts.conf")
 
     if system.haveexecutable("pipenv"):
@@ -64,6 +64,10 @@ def main():
         files.symlink("i3exit.sh", "~/.local/bin/i3exit")
         files.symlink("locker.sh", "~/.local/bin/locker")
         files.symlink("i3.conf", "~/.i3/config")
+
+    if system.haveexecutable("sway"):
+        files.mkdir(f"{config_home}/sway")
+        files.symlink("sway.conf", f"{config_home}/sway/config")
 
     if system.haveexecutable("kitty"):
         files.mkdir(f"{config_home}/kitty")
