@@ -10,6 +10,10 @@ HERE = os.path.dirname(os.path.realpath(__file__))
 
 
 def main():
+    # Better handle if XDG_CONFIG_HOME is unset or empty (during initial bootstrap)
+    default_config_home = "$HOME/.config"
+    config_home = os.getenv("XDG_CONFIG_HOME", default_config_home) or default_config_home
+
     # TODO to auto rename to an "x.old" and warn?
     files.symlink("bashrc", ".bashrc")
     files.symlink("bash_profile", ".bash_profile")
@@ -47,6 +51,10 @@ def main():
     # link custom ftplugin files
     files.symlink("vim-ftplugin", ".vim/ftplugin")
 
+    # Font config
+    files.mkdir(os.path.join(config_home, "fontconfig"))
+    files.symlink("fonts.conf", f"{config_home}/fontconfig/fonts.conf")
+
     if system.haveexecutable("pipenv"):
         # TODO warn that they need to reload for this to take effect
         files.lineinfile(".bashrc.local", 'eval "$(pipenv --completion)"')
@@ -58,8 +66,9 @@ def main():
         files.symlink("i3.conf", "~/.i3/config")
 
     if system.haveexecutable("kitty"):
-        files.mkdir("$XDG_CONFIG_HOME/kitty")
-        files.symlink("kitty.conf", "$XDG_CONFIG_HOME/kitty/kitty.conf")
+        files.mkdir(f"{config_home}/kitty")
+        files.symlink("kitty.conf", f"{config_home}/kitty/kitty.conf")
+
 
     if system.haveexecutable("pre-commit"):
         # Install pre-commit in all new/cloned repos
