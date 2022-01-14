@@ -12,6 +12,52 @@ and this project adheres to
 Unreleased_
 ===========
 
+Added
+-----
+
+* Vim:
+  - Movement plugins including vim-surround, vim-repeat, vim-sneak.
+
+
+* Bash/Profile:
+
+  - Support for `asdf-vm <https://asdf-vm.com/>`__ .
+    - Default go packages, asdfrc, tool version defaults.
+  - ``JAVA_HOME``
+  - Go modules on enabled by default ``G111MODULE=on``
+
+* Git:
+
+  - ``git lg`` alias for ``git log --graph``
+  - ``git s`` alias for ``git status``
+
+* Sway:
+
+  - Rough sway config in progress.
+
+* Misc:
+
+  - ``.latexmkrc``
+  - Example systemd suspend service file (involving xflock4)
+  - Modified xflock4 script
+  - Autohotkey script ``cap2esc.ahk`` to change caps to esc for windows.
+  - ``cap2esc.yaml`` for interception-tools caps to esc via libuvdev.
+  - Fontconfig settings.
+
+
+
+Changed
+-------
+
+* Vim:
+
+  - Default go language server to ``gopls``
+  - Only create lsp folder if it doesn't already exist (for language server logs)
+
+* Bash/Profile:
+
+  - pyenv and other version managers not initialised if asdf-vm is present.
+
 0.8.0_ - 2020-06-31
 ===================
 
@@ -24,6 +70,7 @@ Added
   - filetype settings for LaTeX, markdown, rst.
   - AnsiEsc plugin for ANSI color highlighting.
   - Vim-airline plugin.
+
 * Config ``kitty.conf`` for the kitty terminal.
 
   - Uses PragmataPro font.
