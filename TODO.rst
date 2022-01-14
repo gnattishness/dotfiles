@@ -1,6 +1,9 @@
 TODO
 ====
 
+* global gitignore template?
+  - in ~/.config/git/ignore
+* interactive/reminder for machine specific config settings you probably want to set (e.g. git user.email)
 * Document manjaro i3 workaround - to modify xflock4 to not use blurlock
   - might need to replace it after manjaro updates
 * Add config and notes for time tracker
