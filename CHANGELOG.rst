@@ -28,6 +28,7 @@ Added
     - Default go packages, asdfrc, tool version defaults.
   - ``JAVA_HOME``
   - Go modules on enabled by default ``G111MODULE=on``
+  - ``~/.yarn/bin`` added to PATH
 
 * Git:
 
