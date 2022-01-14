@@ -19,8 +19,13 @@ def main():
     files.symlink("bash_profile", ".bash_profile")
     files.symlink("profile", ".profile")  # TODO maybe add lines instead?
     files.symlink("editorconfig", ".editorconfig")
+
+    if system.haveexecutable("latexmk"):
+        files.symlink("latexmkrc", ".latexmkrc")
+
     if system.haveexecutable("task"):
         files.symlink("taskrc", ".taskrc")
+
     if system.haveexecutable("asdf"):
         files.symlink("tool-versions", ".tool-versions")
         files.symlink("asdfrc", ".asdfrc")
