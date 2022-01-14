@@ -1,5 +1,6 @@
 [alias]
 	lg = log --graph
+	s = status
 [core]
 	editor = vim
 [color]
@@ -23,4 +24,6 @@
 	enabled = true
 [tag]
 	gpgsign = true
+[user]
+    useConfigOnly = true
 # diff.algorithm?
