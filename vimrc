@@ -1,6 +1,7 @@
 set nocompatible
 
 set pyxversion=3
+set encoding=utf-8
 
 call plug#begin('~/.vim/plugged')
 
@@ -15,6 +16,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'justinmk/vim-sneak'
+Plug 'godlygeek/tabular'
 
 " Editor Config settings
 Plug 'editorconfig/editorconfig-vim'
@@ -44,6 +46,12 @@ Plug 'chikamichi/mediawiki.vim'
 
 " Markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+Plug 'plasticboy/vim-markdown'
+" Applies to all filetypes, not just md, and uses map instead of nore
+" Not overly maintained, though doesn't really need to be
+Plug 'jkramer/vim-checkbox'
+
+Plug 'dhruvasagar/vim-table-mode'
 
 " Solidity
 Plug 'TovarishFin/vim-solidity'
@@ -66,6 +74,9 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
+" Experiment with working in different python versions?
+"Plug 'lambdalisue/vim-pyenv'
+
 Plug 'Shougo/echodoc.vim'
 
 
@@ -83,7 +94,6 @@ call plug#end()
 
 syntax on
 filetype plugin indent on
-set encoding=utf-8
 set background=dark
 set nowrap
 set title
@@ -100,6 +110,11 @@ if &term =~ '256color'
     " https://sunaku.github.io/vim-256color-bce.html
     set t_ut=
 endif
+if &term == 'alacritty'
+    " Help vim choose mouse support for alacritty terminal
+    " See https://vi.stackexchange.com/a/33013
+    set ttymouse=sgr
+endif
 
 set cmdheight=2
 set bs=2
@@ -107,6 +122,7 @@ set ts=8
 set et
 set sw=4
 set sts=4
+set conceallevel=2
 
 set showmatch
 set hlsearch
@@ -139,11 +155,21 @@ set signcolumn=yes
 " Default spelling
 set spelllang=en_au
 
-let g:tex_flavor = "latex"
+
+" Start clientserver for terminal vim
+" See :h vimtex-clientserver
+if empty(v:servername) && exists('*remote_startserver')
+  call remote_startserver('VIM')
+endif
 
 
 " Plugin settings
 """""""""""""""""
+let g:vim_markdown_math = 1
+let g:vim_markdown_conceal_code_blocks = 0
+let g:vim_markdown_follow_anchor = 1
+let g:vim_markdown_strikethrough = 1
+let g:vim_markdown_new_list_item_indent = 2
 
 let g:airline#extensions#tabline#enabled = 1
 
@@ -153,10 +179,9 @@ call deoplete#custom#option({
             \ 'yarp': v:true,
             \})
 
-if !exists('g:deoplete#omni#input_patterns')
-    let g:deoplete#omni#input_patterns = {}
-endif
-let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete
+call deoplete#custom#var('omni', 'input_patterns', {
+            \ 'tex': g:vimtex#re#deoplete
+            \})
 
 let g:LanguageClient_serverCommands = {
     \ 'haskell': ['hie-wrapper'],
@@ -172,8 +197,8 @@ let g:LanguageClient_autoStart = 1
 
 let g:LanguageClient_loggingLevel = 'INFO'
 " LangClient won't run if log directory doesn't exist
-if ! isdirectory($XDG_DATA_HOME . "/lsp")
-    call mkdir($XDG_DATA_HOME . "/lsp", "p", 0700)
+if ! isdirectory($XDG_DATA_HOME . '/lsp')
+    call mkdir($XDG_DATA_HOME . '/lsp', 'p', 0700)
 endif
 let g:LanguageClient_loggingFile = expand($XDG_DATA_HOME . '/lsp/LanguageClient.log')
 let g:LanguageClient_serverStderr = expand($XDG_DATA_HOME . '/lsp/LanguageServer.log')
@@ -193,44 +218,74 @@ hi link ALEInfo SpellCap
 let g:echodoc#enable_at_startup = 1
 let g:echodoc#type = 'signature'
 
-" Markdown preview
+" vimtex settings
+let g:tex_flavor = 'latex'
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_quickfix_autoclose_after_keystrokes = 2
+" Disable custom warnings based on regexp
+    " For fancy stuff this is good to sort out, but very noisy for my normal
+    " use-case
+let g:vimtex_quickfix_ignore_filters = [
+      \ 'Overfull \\hbox',
+      \ 'Underfull \\hbox',
+      \]
+" TODO sumatra if on windows?
+" uses latexmk by default, which is what we want
+" xdotool with zathura?
+" change default mappings from <Leader>l? clashes with lsp mappings
 
 " Mappings
 """"""""""
+" Generally want the [nore] to avoid recursive mappings
+" https://learnvimscriptthehardway.stevelosh.com/chapters/05.html
+
+let maplocalleader = '-'
 
 " Allows intuitive moving around wrapped lines, but jumping around via line number
 " from https://blog.petrzemek.net/2016/04/06/things-about-vim-i-wish-i-knew-earlier/
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
-map <Leader>lm :call LanguageClient_contextMenu()<CR>
-map <Leader>lk :call LanguageClient#textDocument_hover()<CR>
-map <Leader>ld :call LanguageClient#textDocument_definition()<CR>
-map <Leader>lr :call LanguageClient#textDocument_rename()<CR>
-map <Leader>lf :call LanguageClient#textDocument_formatting()<CR>
-map <Leader>lb :call LanguageClient#textDocument_references()<CR>
-map <Leader>la :call LanguageClient#textDocument_codeAction()<CR>
-map <Leader>ls :call LanguageClient#textDocument_documentSymbol()<CR>
+" Insert mode: convert current word to uppercase
+inoremap <C-u> <esc>viwUea
+
+" NOTE: these clash with the default vimtex mappings if leader==localleader
+noremap <Leader>lm :call LanguageClient_contextMenu()<CR>
+noremap <Leader>lk :call LanguageClient#textDocument_hover()<CR>
+noremap <Leader>ld :call LanguageClient#textDocument_definition()<CR>
+noremap <Leader>lr :call LanguageClient#textDocument_rename()<CR>
+noremap <Leader>lf :call LanguageClient#textDocument_formatting()<CR>
+noremap <Leader>lb :call LanguageClient#textDocument_references()<CR>
+noremap <Leader>la :call LanguageClient#textDocument_codeAction()<CR>
+noremap <Leader>ls :call LanguageClient#textDocument_documentSymbol()<CR>
 
 " LanguageClient commands in a new tab
-map <Leader>ltm :tab call LanguageClient_contextMenu()<CR>
-map <Leader>ltd :tab call LanguageClient#textDocument_definition()<CR>
-map <Leader>ltb :tab call LanguageClient#textDocument_references()<CR>
-map <Leader>lts :tab call LanguageClient#textDocument_documentSymbol()<CR>
+noremap <Leader>ltm :tab call LanguageClient_contextMenu()<CR>
+noremap <Leader>ltd :tab call LanguageClient#textDocument_definition()<CR>
+noremap <Leader>ltb :tab call LanguageClient#textDocument_references()<CR>
+noremap <Leader>lts :tab call LanguageClient#textDocument_documentSymbol()<CR>
 
 " Move windows
 " TODO fix - this doesn't work - (most?) terminals don't distinguish between capital
 " and not
-nnoremap <C-H> <C-w>H
-nnoremap <C-J> <C-w>J
-nnoremap <C-K> <C-w>K
-nnoremap <C-L> <C-w>L
+" would be nice to ctrl+shift+direction to move in a single keystroke
+"nnoremap <C-H> <C-w>H
+"nnoremap <C-J> <C-w>J
+"nnoremap <C-K> <C-w>K
+"nnoremap <C-L> <C-w>L
 
 " Navigate around windows more easily
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+" TODO neaten - so only applies to tex/latex filetypes etc
+"'<,'>s/`\([^`]*\)`/\\code{\1}/g
+" maybe add as a surround.vim
+" can also handle normal mode change current
+" convert markdown style inline code `something`, to latex \code{something}
+vnoremap <Leader>cc :s/`\([^`]*\)`/\\code{\1}/g<CR>
 
 " Settings from tutor
 "map <silent> <F2> :Flisttoggle<CR>
@@ -309,8 +364,8 @@ nnoremap <C-l> <C-w>l
 " .get()  .[cache[v]]
 
 " Source local, device-specific settings.
-let s:localvimrc = expand("~/.vimrc.local")
+let s:localvimrc = expand('~/.vimrc.local')
 if filereadable(s:localvimrc)
-    execute "source" s:localvimrc
+    execute 'source' s:localvimrc
 endif
 

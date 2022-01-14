@@ -16,7 +16,10 @@ Added
 -----
 
 * Vim:
+
+  - Vimtex settings, mappings
   - Movement plugins including vim-surround, vim-repeat, vim-sneak.
+  - Markdown plugins `plasticboy/vim-markdown <https://github.com/plasticboy/vim-markdown>`__ and `jkramer/vim-checkbox <https://github.com/jkramer/vim-checkbox>`__.
 
 
 * Bash/Profile:
@@ -51,12 +54,20 @@ Changed
 
 * Vim:
 
+  - LocalLeader mapped to ``-``.
   - Default go language server to ``gopls``
   - Only create lsp folder if it doesn't already exist (for language server logs)
 
 * Bash/Profile:
 
   - pyenv and other version managers not initialised if asdf-vm is present.
+
+Fixed
+-----
+
+* Vim:
+
+  - Mouse support for alacritty terminal.
 
 0.8.0_ - 2020-06-31
 ===================
