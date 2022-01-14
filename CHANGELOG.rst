@@ -40,6 +40,7 @@ Added
 
 * Misc:
 
+  - Kitty terminal enabling PragmataPro font features.
   - ``.latexmkrc``
   - Example systemd suspend service file (involving xflock4)
   - Modified xflock4 script
