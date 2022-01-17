@@ -124,14 +124,15 @@
     "sway/workspaces": {
         "disable-scroll": true,
         "disable-markup" : false,
-        "all-outputs": true,
-        "format": "  {icon}  ",
+        "all-outputs": false,
+        "format": " {icon}{value}  ",
         //"format":"{icon}",
         "format-icons": {
             "1": "",
             "2": "",
             "3": "",
             "4": "",
+            "default": " ",
         }
     },
     "pulseaudio": {
