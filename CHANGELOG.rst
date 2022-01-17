@@ -12,6 +12,10 @@ and this project adheres to
 Unreleased_
 ===========
 
+
+0.9.0_ - 2022-01-17
+===================
+
 Added
 -----
 
@@ -256,7 +260,8 @@ Changed
 
 
 .. Links
-.. _Unreleased: https://github.com/gnattishness/dotfiles/compare/0.8.0...HEAD
+.. _Unreleased: https://github.com/gnattishness/dotfiles/compare/0.9.0...HEAD
+.. _0.9.0: https://github.com/gnattishness/dotfiles/compare/0.8.0...0.9.0
 .. _0.8.0: https://github.com/gnattishness/dotfiles/compare/0.7.0...0.8.0
 .. _0.7.0: https://github.com/gnattishness/dotfiles/compare/0.6.0...0.7.0
 .. _0.6.0: https://github.com/gnattishness/dotfiles/compare/0.5.0...0.6.0
