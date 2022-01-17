@@ -594,7 +594,7 @@ bindsym XF86Bluetooth exec 'notify-send --urgency low -h string:x-canonical-priv
 #
 #
 # user config directory
-# TODO note/document that this works properly!
+# TODO note/document that this variable expansion works properly!
 include ${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*
 
 # Add any user/machine specific config to the user config directory

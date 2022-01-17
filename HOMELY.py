@@ -1,7 +1,8 @@
 #! /usr/bin/env python3
 
-import sys
 import os
+import pathlib
+import sys
 
 import homely.files as files
 import homely.system as system
@@ -71,13 +72,31 @@ def main():
         files.symlink("i3.conf", "~/.i3/config")
 
     if system.haveexecutable("sway"):
-        files.mkdir(f"{config_home}/sway")
-        files.symlink("sway.conf", f"{config_home}/sway/config")
+        sway_dest_dir = pathlib.Path(f"{config_home}/sway")
+        files.mkdir(str(sway_dest_dir))
+        files.symlink("sway/config", str(sway_dest_dir / "config"))
+        dest_conf_d = sway_dest_dir / "config.d"
+        files.mkdir(str(dest_conf_d))
+        # Symlink all content from sway/config.d to ~/sway/config.d
+        # Rather than symlinking the directory itself, to allow for local-machine inclusions
+        for i in pathlib.Path(HERE, "sway/config.d").iterdir():
+            files.symlink(str(i), str(dest_conf_d / i.name))
+
+        dest_scripts_dir = sway_dest_dir / "scripts"
+        for i in pathlib.Path(HERE, "sway/scripts").iterdir():
+            files.symlink(str(i), str(dest_scripts_dir / i.name))
+
+    if system.haveexecutable("waybar"):
+        waybar_dest_dir = pathlib.Path(config_home, "waybar")
+        files.symlink("waybar/config", str(waybar_dest_dir / "config"))
+        files.symlink("waybar/style.css", str(waybar_dest_dir / "style.css"))
+        files.mkdir(str(waybar_dest_dir))
+        for i in pathlib.Path(HERE, "waybar/scripts").iterdir():
+            files.symlink(str(i), str(waybar_dest_dir / "scripts" / i.name))
 
     if system.haveexecutable("kitty"):
         files.mkdir(f"{config_home}/kitty")
         files.symlink("kitty.conf", f"{config_home}/kitty/kitty.conf")
-
 
     if system.haveexecutable("pre-commit"):
         # Install pre-commit in all new/cloned repos
