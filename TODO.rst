@@ -1,6 +1,7 @@
 TODO
 ====
 
+* Periodically review https://github.com/EndeavourOS-Community-Editions/sway for any nice config updates
 * global gitignore template?
   - in ~/.config/git/ignore
 * interactive/reminder for machine specific config settings you probably want to set (e.g. git user.email)

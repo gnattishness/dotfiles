@@ -40,7 +40,7 @@ Added
   - Rough sway config in progress.
   - Adapted from https://github.com/EndeavourOS-Community-Editions/sway included config
   - Added waybar config
-  - Appropriate installation script
+  - Appropriate homely installation script
 
 * Misc:
 
