@@ -12,6 +12,11 @@ and this project adheres to
 Unreleased_
 ===========
 
+Added
+-----
+
+* Alacritty config with minimal changes.
+
 
 0.9.0_ - 2022-01-17
 ===================

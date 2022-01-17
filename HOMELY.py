@@ -100,6 +100,10 @@ def main():
         files.mkdir(f"{config_home}/kitty")
         files.symlink("kitty.conf", f"{config_home}/kitty/kitty.conf")
 
+    if system.haveexecutable("alacritty"):
+        files.mkdir(f"{config_home}/alacritty")
+        files.symlink("alacritty.yml", f"{config_home}/alacritty/alacritty.yml")
+
     if system.haveexecutable("pre-commit"):
         # Install pre-commit in all new/cloned repos
         # See also https://pre-commit.com/#pre-commit-init-templatedir

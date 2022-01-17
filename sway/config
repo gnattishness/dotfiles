@@ -21,7 +21,7 @@ set $up k
 set $right l
 
 # Your preferred terminal emulators
-set $term alacritty
+set $term kitty
 
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
@@ -53,8 +53,10 @@ exec swayidle -w \
 
     # Start a terminal
     bindsym $mod+Return exec $term
+
+    # $mod+Shift+Return is bound in kitty.conf to open a new terminal in the same PWD
     # alt terminal
-    bindsym $mod+Shift+Return exec xfce4-terminal
+    bindsym $mod+Shift+Ctrl+Return exec alacritty
 
     # Kill focused window
     bindsym $mod+Shift+q kill
