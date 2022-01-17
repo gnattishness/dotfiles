@@ -3,8 +3,13 @@ My dotfile repository
 Installation
 ============
 
-# Install homely (recommend using [pipx](https://pipxproject.github.io))::
-    $ pipx install homely
+#. Install `homely <https://homely.readthedocs.io/en/latest/>`__ (recommend using `pipx <https://pipxproject.github.io>`__
+    .. code-block:: console
 
-# Add the repo::
-    $ homely add https://github.com/gnattishness/dotfiles.git
+        $ pipx install homely
+
+#. Add the repo
+
+    .. code-block:: console
+
+        $ homely add https://github.com/gnattishness/dotfiles.git
