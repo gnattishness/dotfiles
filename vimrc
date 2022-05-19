@@ -185,7 +185,7 @@ call deoplete#custom#var('omni', 'input_patterns', {
 
 let g:LanguageClient_serverCommands = {
     \ 'haskell': ['hie-wrapper'],
-    \ 'python': ['pyls'],
+    \ 'python': ['pylsp'],
     \ 'rust': ['rustup', 'run', 'stable', 'rls'],
     \ 'cpp': ['clangd'],
     \ 'c': ['clangd'],

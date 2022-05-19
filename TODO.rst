@@ -1,7 +1,22 @@
 TODO
 ====
 
+* systemd-cat sway
+  * https://github.com/swaywm/sway/wiki/Systemd-integration#running-sway-itself-as-a---user-service
+* sway env & launcher script
+  https://www.reddit.com/r/swaywm/comments/gpzqcg/set_environment_variables/
+  also for kitty
+* vscode settings.json
+* multiple swaylock instances running
+* lock keepass before screen lock
+* check lockman script - does it make sense?
+* kitty handle clipboard/selection ok
+* what suitable sysrq setting to use?
+* Why eDP-1 now instead of '<eDP-1>'
 * Periodically review https://github.com/EndeavourOS-Community-Editions/sway for any nice config updates
+* .profile MOZ_ENABLE_WAYLAND in /etc/environment. Does this get removed/reset sometimes?
+  - if so, can put it in .profile but check if wayland is present
+  - https://unix.stackexchange.com/questions/202891/how-to-know-whether-wayland-or-x11-is-being-used/371164#371164
 * global gitignore template?
   - in ~/.config/git/ignore
 * interactive/reminder for machine specific config settings you probably want to set (e.g. git user.email)
@@ -13,10 +28,14 @@ TODO
   - Other options might be:
     - https://www.kimai.org/ (more involved server setup, maybe better in the longer run)
     - Ktimetracker - KDE-based
-* Add latexmkrc
-* Document python-language-server install::
-  $ pipx install python-language-server[rope,pyflakes,pydocstyle,pylint]
-  $ pipx inject python-language-server pyls-black pyls-isort pyls-mypy
+* Document python-lsp-server install
+  (pyls now unmaintained https://github.com/python-lsp/python-lsp-server/issues/27)
+
+  ::
+
+      $ pipx install python-lsp-server[rope,pyflakes]
+      $ pipx inject python-lsp-server pylsp-black pyls-isort pylsp-mypy pylsp-rope
+
 
 * File markdown highlighting bug::
 
