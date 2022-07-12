@@ -1,6 +1,7 @@
 TODO
 ====
 
+* vim do not count `::` as part of a single word, maybe count `-`?
 * systemd-cat sway
   * https://github.com/swaywm/sway/wiki/Systemd-integration#running-sway-itself-as-a---user-service
 * sway env & launcher script
