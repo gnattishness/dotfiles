@@ -111,6 +111,13 @@ def main():
         system.execute(["git", "config", "--global", "init.templateDir", template_path])
         system.execute(["pre-commit", "init-templatedir", template_path])
 
+    if system.haveexecutable("chromium"):
+        files.symlink("chromium-flags.conf", f"{config_home}/chromium-flags.conf")
+
+    # TODO does electron do the hints too, or should this only be installed when wayland is present?
+    files.symlink("electron-flags.conf", f"{config_home}/electron-flags.conf")
+
+
     return 0
 
 
