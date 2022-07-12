@@ -56,6 +56,8 @@ def main():
     )
     # link custom ftplugin files
     files.symlink("vim-ftplugin", ".vim/ftplugin")
+    # link custom ftdetect files
+    files.symlink("vim-ftdetect", ".vim/ftdetect")
 
     # Font config
     files.mkdir(f"{config_home}/fontconfig")

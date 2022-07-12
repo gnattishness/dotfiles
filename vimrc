@@ -57,7 +57,7 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'TovarishFin/vim-solidity'
 
 " Ansi colored escape characters
-Plug 'powerman/vim-plugin-AnsiEsc'
+Plug 'chrisbra/Colorizer'
 
 " Vim language server client
 Plug 'autozimu/LanguageClient-neovim', {
@@ -165,6 +165,8 @@ endif
 
 " Plugin settings
 """""""""""""""""
+let g:colorizer_auto_filetype='out'
+
 let g:vim_markdown_math = 1
 let g:vim_markdown_conceal_code_blocks = 0
 let g:vim_markdown_follow_anchor = 1
@@ -285,6 +287,7 @@ nnoremap <C-l> <C-w>l
 " maybe add as a surround.vim
 " can also handle normal mode change current
 " convert markdown style inline code `something`, to latex \code{something}
+" TODO remove it setting hlsearch - maybe via function-search-undo
 vnoremap <Leader>cc :s/`\([^`]*\)`/\\code{\1}/g<CR>
 
 " Settings from tutor
