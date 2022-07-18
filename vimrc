@@ -18,6 +18,9 @@ Plug 'tpope/vim-surround'
 Plug 'justinmk/vim-sneak'
 Plug 'godlygeek/tabular'
 
+" Wayland clipboard
+Plug 'jasonccox/vim-wayland-clipboard'
+
 " Editor Config settings
 Plug 'editorconfig/editorconfig-vim'
 
@@ -57,7 +60,9 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'TovarishFin/vim-solidity'
 
 " Ansi colored escape characters
-Plug 'chrisbra/Colorizer'
+Plug 'powerman/vim-plugin-AnsiEsc'
+" This doesn't handle all the escape codes TODO troubleshoot
+"Plug 'chrisbra/Colorizer'
 
 " Vim language server client
 Plug 'autozimu/LanguageClient-neovim', {
@@ -165,7 +170,7 @@ endif
 
 " Plugin settings
 """""""""""""""""
-let g:colorizer_auto_filetype='out'
+"let g:colorizer_auto_filetype='out'
 
 let g:vim_markdown_math = 1
 let g:vim_markdown_conceal_code_blocks = 0
@@ -289,6 +294,47 @@ nnoremap <C-l> <C-w>l
 " convert markdown style inline code `something`, to latex \code{something}
 " TODO remove it setting hlsearch - maybe via function-search-undo
 vnoremap <Leader>cc :s/`\([^`]*\)`/\\code{\1}/g<CR>
+
+" Copy/yank reference to current file path (relative path) and line number of
+" cursor
+" Example when the file name is "src/version.c", current dir "/home/mool/vim",
+" cursor at line 423:
+" sets the unnamed register to src/version.c:423
+
+" Returns empty string, for use in mappings
+def CopyCurrentPathWithLine(registerName: string = '"'): string
+    # maybe use v:register instead for clipboard?
+    var val: string
+    var lineNos = sort([line('.'), line('v')])
+    # which one is the smaller number, depends on the direction of the
+    # selection. When selecting downwards, the cursor (.) is the larger
+    # linenumber. And when selecting upwards, ('v') is.
+    # See `:help line()`
+    if lineNos[1] != lineNos[0]
+        # we're in visual mode with more than 1 line selected
+        val = expand('%:~:.') .. ':' .. lineNos[0] .. '-' .. lineNos[1]
+    else
+        val = expand('%:~:.') .. ':' .. lineNos[0]
+    endif
+    echon "Copied \"" val "\" to register '" registerName "'"
+    setreg(registerName, val)
+    return ""
+enddef
+
+vnoremap <expr> <Leader>r CopyCurrentPathWithLine('"')
+nnoremap <expr> <Leader>r CopyCurrentPathWithLine('"')
+
+" Shortchuts for clipboard mappings, recursive to work with wayland mappings
+" https://github.com/jasonccox/vim-wayland-clipboard#non-recursive-mappings
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>P "+P
+vmap <Leader>p "+p
+
+nmap <Leader>y "+y
+nmap <Leader>Y "+Y
+vmap <Leader>y "+y
+vmap <Leader>Y "+Y
 
 " Settings from tutor
 "map <silent> <F2> :Flisttoggle<CR>
