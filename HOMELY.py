@@ -40,6 +40,10 @@ def main():
     # NOTE this might overwrite if there's another include.path already present
     # TODO revert/cleanup somehow?
     # TODO check that path specification using ~/ works
+    # global git ignore
+    files.mkdir(f"{config_home}/git")
+    files.symlink("git-ignore", f"{config_home}/git/ignore")
+
 
     # TODO does pipinstall use system pip or HOMELY's one?
 
