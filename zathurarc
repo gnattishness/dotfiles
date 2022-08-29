@@ -1,0 +1,5 @@
+set selection-clipboard "clipboard"
+set font "monospace normal 16"
+set guioptions "sv"
+set statusbar-home-tilde "true"
+set highlight-fg "#FF0000"

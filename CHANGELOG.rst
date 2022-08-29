@@ -16,6 +16,7 @@ Added
 -----
 
 * Alacritty config with minimal changes.
+* Zathurarc `zathura <https://pwmt.org/projects/zathura/>`__ config
 
 
 0.9.0_ - 2022-01-17

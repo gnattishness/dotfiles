@@ -77,6 +77,11 @@ def main():
         files.symlink("locker.sh", "~/.local/bin/locker")
         files.symlink("i3.conf", "~/.i3/config")
 
+    if system.haveexecutable("zathura"):
+        conf_dir = pathlib.Path(f"{config_home}/zathura")
+        files.mkdir(str(conf_dir))
+        files.symlink("zathurarc", str(conf_dir / "zathurarc"))
+
     if system.haveexecutable("sway"):
         sway_dest_dir = pathlib.Path(f"{config_home}/sway")
         files.mkdir(str(sway_dest_dir))
